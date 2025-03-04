@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #E8F6EF;
+            /* Mint Background */
+            color: #2B7A78;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background-color: #FFFFFF;
+            border: 2px solid #2B7A78;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .card h5 {
+            color: #3A6351;
+        }
+
+        .form-check-label {
+            font-size: 18px;
+        }
+
+        .btn-primary {
+            background-color: #2B7A78;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #205D5B;
+        }
+
+        .modal-content {
+            border-radius: 10px;
+        }
+
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .loader-circle {
+            width: 12px;
+            height: 12px;
+            background-color: #2B7A78;
+            border-radius: 50%;
+            animation: pulse-animation 1.5s infinite ease-in-out;
+        }
+
+        .loader-circle:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loader-circle:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes pulse-animation {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            font-size: 50px;
+            color: #28a745;
+            animation: pop-scale 0.6s ease-in-out;
+        }
+
+        @keyframes pop-scale {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: pop-scale 0.6s ease-in-out;
+        }
+
+        @keyframes pop-scale {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="text-center mb-4">Confirm Your Recharge</h2>
+
+        <!-- Plan Details Card -->
+        <div class="card">
+            <h5 class="text-center" id="plan-title"></h5>
+            <hr>
+            <p><strong>Mobile:</strong> <span id="mobile-number"></span></p>
+            <p><strong>Data:</strong> <span id="plan-data"></span></p>
+            <p><strong>Validity:</strong> <span id="plan-validity"></span> days</p>
+            <p><strong>Voice Calls:</strong> <span id="plan-voice"></span></p>
+            <p><strong>OTT's:</strong> <span id="plan-description"></span></p>
+        </div>
+
+        <!-- Payment Options -->
+        <h4 class="mt-4 text-center">Select Payment Method</h4>
+        <div class="d-flex flex-column align-items-start">
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="upi"
+                    onclick="showPaymentModal('upiModal')">
+                <label class="form-check-label" for="upi">UPI</label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="card"
+                    onclick="showPaymentModal('cardModal')">
+                <label class="form-check-label" for="card">Credit/Debit Card</label>
+            </div>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="netBanking"
+                    onclick="showPaymentModal('netBankingModal')">
+                <label class="form-check-label" for="netBanking">Net Banking</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- UPI Payment Modal -->
+    <div class="modal fade" id="upiModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glassmorphism">
+                <div class="modal-header">
+                    <h5 class="modal-title">UPI Payment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="Enter UPI ID">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" onclick="processPayment()">Pay Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card Payment Modal -->
+    <div class="modal fade" id="cardModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glassmorphism">
+                <div class="modal-header">
+                    <h5 class="modal-title">Card Payment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control mb-2" placeholder="Card Number">
+                    <input type="text" class="form-control mb-2" placeholder="Expiry Date (MM/YY)">
+                    <input type="text" class="form-control mb-2" placeholder="CVV">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" onclick="processPayment()">Pay Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Net Banking Modal -->
+    <div class="modal fade" id="netBankingModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glassmorphism">
+                <div class="modal-header">
+                    <h5 class="modal-title">Net Banking</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <select class="form-control">
+                        <option>Select Bank</option>
+                        <option>HDFC Bank</option>
+                        <option>ICICI Bank</option>
+                        <option>SBI Bank</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" onclick="processPayment()">Pay Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loader Modal (Processing Payment) -->
+    <div class="modal fade" id="loaderModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4" style="border-radius: 10px; background: #E8F6EF;">
+                <div class="loader-container">
+                    <div class="loader-circle"></div>
+                    <div class="loader-circle"></div>
+                    <div class="loader-circle"></div>
+                </div>
+                <h5 class="mt-3" style="color: #2B7A78;">Processing Payment...</h5>
+            </div>
+        </div>
+    </div>
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4"
+                style="border-radius: 12px; background: #E8F6EF; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+                <div class="success-icon">
+                    <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="40" stroke="#28a745" stroke-width="8" fill="none" />
+                        <path d="M30 50 L45 65 L70 35" stroke="#28a745" stroke-width="8" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <h4 class="mt-3" style="color: #2B7A78; font-weight: bold;">Recharge Successful</h4>
+                <p class="text-muted">Your recharge has been processed successfully!</p>
+                <button type="button" class="btn btn-success mt-3" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function loadPaymentDetails() {
+            let mobile = sessionStorage.getItem("mobileNumber");
+            let plan = JSON.parse(sessionStorage.getItem("selectedPlan"));
+
+            if (!mobile || !plan) {
+                alert("Invalid session!");
+                window.location.href = "index.html";
+                return;
+            }
+
+            document.getElementById("plan-title").innerText = `Plan: ${plan.title} - ₹${plan.price}`;
+            document.getElementById("plan-data").innerText = plan.data;
+            document.getElementById("plan-validity").innerText = plan.validity;
+            document.getElementById("plan-voice").innerText = plan.voice;
+            document.getElementById("plan-description").innerText = plan.description;
+            document.getElementById("mobile-number").innerText = mobile;
+        }
+
+        function showPaymentModal(modalId) {
+            let modal = new bootstrap.Modal(document.getElementById(modalId));
+            modal.show();
+        }
+
+        function processPayment() {
+            console.log("Processing payment started...");
+            let processingModal = new bootstrap.Modal(document.getElementById("loaderModal"));
+            processingModal.show();
+
+            // Simulate processing delay (e.g., 3 seconds)
+            setTimeout(() => {
+                processingModal.hide(); // Close Processing Modal
+
+                let successModal = new bootstrap.Modal(document.getElementById("successModal"));
+                successModal.show();
+
+                // Redirect to index page after 3 seconds
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 3000);
+
+            }, 3000);
+        }
+        loadPaymentDetails();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

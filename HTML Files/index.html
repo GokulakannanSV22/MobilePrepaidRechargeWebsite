@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="../css/custom.min.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-custom">
+                <div class="collapse navbar-collapse show" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">
+                                <i class="fa-solid fa-bolt"></i> <span class="d-none d-lg-inline">Instant
+                                    Recharge</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#carousel-section">
+                                <i class="fa-solid fa-tag"></i> <span class="d-none d-lg-inline">Explore Offers</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="prepaidpalns.html">
+                                <i class="fa-solid fa-bookmark"></i> <span class="d-none d-lg-inline">Prepaid
+                                    Plans</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal" id="profile-button">
+                                <i class="fa-solid fa-id-badge"></i> <span class="d-none d-lg-inline">Profile</span>
+                            </a>
+                            <div class="dropdown" id="profileDropdown" style="display: none;">
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown">
+                                    Profile
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="dashboard.html">Dashboard</a></li>
+                                    <li><button class="dropdown-item text-danger" onclick="logout()">Logout</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section" id="hero">
+        <div class="container" id="instant-recharge">
+            <div class="row p-5">
+                <div class="col-lg-6 col-md-12 mt-lg-5 mt-sm-1">
+                    <p class="display-5 hero-text mt-lg-5" data-aos="fade-right" data-aos-delay="300"><span
+                            class="text-white">Explore</span> plans with unlimited
+                        voice calls, data, SMS, and a host of benefits.</p>
+                </div>
+                <div class="col-lg-6 col-md-12  p-lg-5 p-sm-0 rounded-5 mt-lg-5" data-aos="fade-left"
+                    data-aos-delay="300">
+                    <h1 class="h3 mx-2 mt-4">Mobile Number</h1>
+                    <input type="text" id="mobileNumber" class="form-control mx-auto mt-4 w-100 p-lg-3 mb-4 rounded-5"
+                        placeholder="+91  Enter Mobile-Number">
+                    <span id="error-mobilenumber" class="secondary"></span>
+                    <div class="text-center">
+                        <button type="button" class="p-3 text-center mb-sm-4 mb-lg-0 recharge-button w-lg-50 w-sm-100"
+                            onclick="validateMobileNumber()">Recharge
+                            Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 text-center mt-5  w-100 display-2 sub-heading" data-aos="fade-up"
+                data-aos-delay="300">
+                <p id="scrambleTarget">
+                    1 Million + Trusted
+                    Customers
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="carousel" id="carousel-section">
+        <div class="container px-4 py-lg-5 py-md-1 py-sm-2 mt-lg-5 mt-md-1 mt-sm-1 position-relative" id="custom-cards">
+            <div class="owl-carousel owl-theme">
+
+                <div class="item item1">
+                    <div class="card shadow-sm">
+                        <img src="../Assests/gaming.jpg" width="100%" height="100%" />
+                        <div class="card-body">
+                            <p class="h5">Specific Plans For Our HardCore Gamers</p>
+                            <div class="text-center">
+                                <a href="prepaidpalns.html" class="text-center mx-auto">
+                                    <p class="hover-underline-animation center text-center mx-auto h5">Explore Plans</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--[End of Item one]-->
+
+                <div class="item item2">
+                    <div class="card shadow-sm">
+                        <img src="../Assests/netflix.webp" width="100%" height="225px" />
+                        <div class="card-body">
+                            <p class="h5">Dedicated Plans For Our Movie Buffs..</p>
+                            <div class="text-center">
+                                <a href="prepaidpalns.html" class="text-center mx-auto">
+                                    <p class="hover-underline-animation center text-center mx-auto h5">Explore Plans</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--[End of Item two]-->
+
+                <div class="item item3">
+                    <div class="card shadow-sm">
+                        <img src="../Assests/PRIME1.jpg" width="100%" height="225px" />
+                        <div class="card-body">
+                            <p class="h5">Dedicated Plans for Our Prime Video Users...</p>
+                            <div class="text-center">
+                                <a href="prepaidpalns.html" class="text-center mx-auto">
+                                    <p class="hover-underline-animation center text-center mx-auto h5">Explore Plans</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--[End of Item three]-->
+                <div class="item item5">
+                    <div class="card shadow-sm">
+                        <img src="../Assests/hotstar.png" width="100%" height="225px" />
+                        <div class="card-body">
+                            <p class="h5">Dedicated Plans for Our Hotstar Users...</p>
+                            <div class="text-center">
+                                <a href="prepaidpalns.html" class="text-center mx-auto">
+                                    <p class="hover-underline-animation center text-center mx-auto h5">Explore Plans</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--[End of Item five]-->
+            </div>
+        </div>
+    </section>
+
+    <section class="card-showcase">
+        <div class="container py-5">
+            <div class="row g-4 justify-content-center mt-5">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card card-pricing p-4 text-center">
+                        <h5>Pocket Friendly</h5>
+                        <p class="price"><span class="h6">Starts on </span>₹129<span class="fs-6">/month</span></p>
+                        <p>Dedicated Section for our Budget Users..</p>
+                        <ul class="feature-list text-start">
+                            <li><i class="fa-solid fa-globe"></i> Limited Amount of Data</li>
+                            <li class="pt-1"><i class="fa-solid fa-users-gear"></i> Up to 4,000 Regular Users</li>
+                            <li class="pt-1"><i class="fa-solid fa-phone-volume"></i> Unlimited Calls</li>
+                            <li class="pt-1"><i class="fa-solid fa-play"></i> Limited OTT's</li>
+                            <a href="prepaidpalns.html" class="btn btn--action"><span>Explore Plans</span></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 my-5">
+                    <div class="card card-pricing p-4 text-center text-dark">
+                        <h5>Entertainment<span class="badge bg-info text-dark ms-2">Popular</span></h5>
+                        <p class="price"><span class="h6">Starts on </span>₹399<span class="fs-6">/month</span></p>
+                        <p>Explore More Entertaiment Exclusive Packs for Movie Buffs..</p>
+                        <ul class="feature-list text-start">
+                            <li><i class="fa-solid fa-globe"></i> Vast Amount of Data</li>
+                            <li><i class="fa-solid fa-users-gear"></i> Up to 8,000 Regular Users</li>
+                            <li><i class="fa-solid fa-play"></i> Dedicated OTT Platforms</li>
+                            <li><i class="fa-solid fa-mobile"></i> Can link Up to 2 Devices</li>
+                        </ul>
+                        <a href="prepaidpalns.html" class="btn btn--action"><span>Explore Plans</span></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card card-pricing p-4 text-center  text-dark">
+                        <h5>Recommended</h5>
+                        <p class="price"><span class="h6">Starts on </span>₹199<span class="fs-6">/month</span></p>
+                        <p>Handpicked plans For You...</p>
+                        <ul class="feature-list text-start">
+                            <li><i class="fa-solid fa-globe"></i> Limited Amount of Data</li>
+                            <li class="pt-1"><i class="fa-solid fa-users-gear"></i> Up to 4,000 Regular Users</li>
+                            <li class="pt-1"><i class="fa-solid fa-phone-volume"></i> Unlimited Calls</li>
+                            <li class="pt-1"><i class="fa-solid fa-play"></i> More than two OTT's</li>
+                        </ul>
+                        <a href="prepaidpalns.html" class="btn btn--action"><span>Explore Plans</span></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 my-5">
+                    <div class="card card-pricing p-4 text-center">
+                        <h5>Gaming<span class="badge bg-info text-dark ms-2">Popular</span></h5>
+                        <p class="price"><span class="h6">Starts on </span>₹399<span class="fs-6">/month</span></p>
+                        <p>Explore dedicated plans which are all made for Gamers..</p>
+                        <ul class="feature-list text-start">
+                            <li><i class="fa-solid fa-globe"></i> Vast Amount of Data</li>
+                            <li><i class="fa-solid fa-users-gear"></i> Up to 5,000 Regular Users</li>
+                            <li><i class="fa-solid fa-gamepad"></i> Dedicated Game Platforms</li>
+                            <li><i class="fa-solid fa-mobile"></i> Can link Up to 2 Devices</li>
+                        </ul>
+                        <a href="prepaidpalns.html" class="btn btn--action"><span>Explore Plans</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="#hero"><button class="instant-recharge-btn" id="instant-recharge"><i
+                class="fa-solid fa-hand-holding-dollar"></i><span> Instant
+                Recharge</span></button></a>
+
+    <h2 class="text-center">Dont Know How To recharge??!!</h2>
+    <section class="timeline-section mt-5">
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <div class="timeline">
+            <div class="timeline-step">
+                <div class="timeline-text">
+                    <span class="step-number">01</span>
+                    <h3>Enter Your Mobicomm Mobile Number</h3>
+                </div>
+                <div class="timeline-image">
+                    <img src="../Assests/step1.png" alt="Download">
+                </div>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-text">
+                    <span class="step-number">02</span>
+                    <h3>Choose Your Favorite Plan from the list of plans</h3>
+                </div>
+                <div class="timeline-image">
+                    <img src="../Assests/step2.png" alt="Form Submission">
+                </div>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-text">
+                    <span class="step-number">03</span>
+                    <h3>Choose the Payment method You are Comfortable with</h3>
+                </div>
+                <div class="timeline-image">
+                    <img src="../Assests/step3.png" alt="Digital Card">
+                </div>
+            </div>
+            <div class="timeline-step">
+                <div class="timeline-text">
+                    <span class="step-number">04</span>
+                    <h3>Tada You have recharged your mobile number successfully!..</h3>
+                </div>
+                <div class="timeline-image">
+                    <img src="../Assests/step4.png" alt="Use Digital Card">
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-primary">
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-3" data-aos="fade-right" data-aos-delay="300">
+                        <h5 class="mt-5">Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="./index.html" class="text-decoration-none text-dark">Home</a></li>
+                            <li><a href="./prepaidplans.html" class="text-decoration-none text-dark">Recharge</a></li>
+                            <li><a href="./Contactus.html" class="text-decoration-none text-dark">Contact Us</a></li>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mb-3" data-aos="fade-up" data-aos-delay="300">
+                        <h5 class="primary mt-5">Contact Info</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-envelope me-2"></i>mobicommsupport@gmail.com</li>
+                            <li><i class="bi bi-telephone me-2"></i>0427-123-4567</li>
+                            <li><i class="bi bi-geo-alt me-2"></i>123 Street Kiot</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mb-3" data-aos="fade-left" data-aos-delay="300">
+                        <h5 class="primary mt-5">Follow Us</h5>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="text-dark fs-4"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-dark fs-4"><i class="bi bi-twitter"></i></a>
+                            <a href="#" class="text-dark fs-4"><i class="bi bi-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="text-center">
+                    <small>&copy; 2024 Mobicomm Recharge Portal. All rights reserved.</small>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glassmorphism">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Mobile Number Input -->
+                    <div id="mobileInputSection">
+                        <label for="mobileNumber" class="form-label">Enter Mobile Number</label>
+                        <input type="text" class="form-control" id="mobileNumber-login"
+                            placeholder="Enter 10-digit number">
+                        <button class="btn btn-success w-100 mt-3" id="login-button" onclick="validateMobile()">Get
+                            OTP</button>
+                    </div>
+
+                    <!-- OTP Section (Initially Hidden) -->
+                    <div id="otpSection" style="display: none;">
+                        <label for="otpInput" class="form-label">Enter OTP</label>
+                        <input type="text" class="form-control" id="otpInput" placeholder="Enter OTP">
+                        <button class="btn btn-primary w-100 mt-3" onclick="login()">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            center: true,
+            items: 3,
+            margin: 0,
+            nav: true,
+            autoplay: true,
+            dots: true,
+            autoplayTimeout: 3000,
+            smartSpeed: 450,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                768: {
+                    items: 2
+                },
+                1170: {
+                    items: 3
+                }
+            }
+        });
+        window.addEventListener('scroll', function () {
+            let section = document.querySelector('.timeline-section');
+            let sectionTop = section.offsetTop;
+            let sectionHeight = section.offsetHeight;
+            let scrollTop = document.documentElement.scrollTop;
+            let scrollEnd = sectionTop + sectionHeight - window.innerHeight;
+    
+            let progress = ((scrollTop - sectionTop) / (scrollEnd - sectionTop)) * 100;
+            if (progress < 0) progress = 0;
+            if (progress > 100) progress = 100;
+            document.getElementById('progress-bar').style.height = progress + '%';
+        });
+        function validateMobileNumber() {
+            let mobileInput = document.getElementById("mobileNumber").value.trim();
+            let error_message = document.getElementById("error-mobilenumber");
+            let mobileRegex = /^[9]\d{9}$/;
+    
+            if (mobileRegex.test(mobileInput)) {
+                error_message.textContent = "";
+                window.location.href = "prepaidpalns.html";
+            }
+            else if (mobileInput === "") {
+                error_message.textContent = "Mobile Number Cannot be Empty ❌";
+    
+            }
+            else {
+                error_message.textContent = "Invalid Mobile Number ❌";
+            }
+        }
+        function validateMobile() {
+            const mobileNumber = document.getElementById("mobileNumber-login").value.trim();
+            if (mobileNumber.length === 10 && !isNaN(mobileNumber)) {
+                document.getElementById("mobileInputSection").style.display = "none";
+                document.getElementById("otpSection").style.display = "block";
+            } else {
+                alert("Enter a valid 10-digit mobile number.");
+            }
+        }
+    
+        async function login() {
+            const mobileNumber = document.getElementById("mobileNumber-login").value.trim();
+            const otp = document.getElementById("otpInput").value.trim();
+    
+            if (otp === "1234") { // Simulating OTP verification
+                sessionStorage.setItem("loggedInUser", mobileNumber); // Store session
+                checkLoginStatus(); // Update UI
+                window.location.href = "userProfile.html";
+                bootstrap.Modal.getInstance(document.getElementById("loginModal")).hide(); // Hide modal
+            } else {
+                alert("Invalid OTP. Please try again.");
+            }
+        }
+    
+        // Check if the user is already logged in
+        function checkLoginStatus() {
+            const loggedInUser = sessionStorage.getItem("loggedInUser");
+            if (loggedInUser) {
+                window.location.href = "userProfile.html";
+                document.getElementById("profileDropdown").style.display = "block"; // Show profile
+                document.getElementById("loginButton").style.display = "none";// Hide login button
+            } else {
+                document.getElementById("profileDropdown").style.display = "none"; // Hide profile
+                document.getElementById("loginButton").style.display = "block"; // Show login button
+            }
+        }
+    
+        // Logout function
+        function logout() {
+            sessionStorage.removeItem("loggedInUser"); // Clear session
+            checkLoginStatus(); // Refresh UI
+            window.location.href = "index.html"; // Redirect to login page
+        }
+    
+        // Ensure UI updates on page load
+        document.addEventListener("DOMContentLoaded", checkLoginStatus);
+    </script>
+</body>
+</html>

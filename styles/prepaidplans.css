@@ -1,0 +1,315 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #e8f9f4;
+
+}
+
+.navbar-custom {
+    border-radius: 40px;
+    padding: 10px 30px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar-collapse {
+    justify-content: center;
+}
+
+.nav-link {
+    color: black !important;
+    font-weight: 500;
+    margin: 0 15px;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease-in-out;
+}
+
+
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+/* Medium & Small Screens - Dynamic Island Bottom Navbar */
+@media (max-width: 992px) {
+    .navbar-custom {
+        width: 95%;
+        bottom: 15px;
+        top: auto;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        border-radius: 20px;
+        padding: 15px 0;
+        background: white;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar-collapse {
+        display: flex !important;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .navbar-nav {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        display: flex;
+    }
+
+    .nav-item {
+        text-align: center;
+        flex: 1;
+    }
+
+    .nav-link {
+        color: #6c757d !important;
+        transition: none;
+    }
+
+    .nav-link i {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+}
+
+.scrollable-tabs-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 0;
+    display: flex;
+}
+
+.scrollable-tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    border-bottom: 2px solid #ddd;
+    width: 100%;
+    max-width: 100%;
+}
+
+.scrollable-tabs .nav-item {
+    flex: none;
+}
+
+.scrollable-tabs .nav-link {
+    color: #495057;
+    font-size: 1rem;
+    padding: 10px 20px;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.scrollable-tabs .nav-link.active {
+    background: none;
+    color: black;
+    border-bottom: 3px solid black;
+    border-radius: 0;
+}
+
+.tab-content {
+    padding: 20px;
+    background-color: #90f596;
+    background-image: linear-gradient(0deg, #90f596 0%, #ffffff 100%);
+
+    border-radius: 10px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.plan-category {
+    margin-top: 100px;
+}
+
+.card {
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    background-color: #d1f2eb;
+    /* Light mint green */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-body {
+    max-height: 250px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #6cc4a1 #f1f1f1;
+}
+
+.card-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.card-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.card-body::-webkit-scrollbar-thumb {
+    background-color: #6cc4a1;
+    /* Mint green scrollbar */
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.card-body::-webkit-scrollbar-thumb:hover {
+    background-color: #57b894;
+}
+
+.buy-btn {
+    background-color: #6cc4a1;
+    /* Mint green button */
+    color: white;
+    border-radius: 30px;
+    width: 100%;
+    padding: 12px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.buy-btn:hover {
+    background-color: #57b894;
+}
+
+.more-details {
+    text-align: center;
+    margin-top: 10px;
+    color: #333;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.recharge-button {
+    background-color: #c2fbd7;
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+    color: green;
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.recharge-button:hover {
+    box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+    transform: scale(1.05) rotate(-1deg);
+}
+
+.ott-section span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.btn--action {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1.5rem;
+    background-color: #57b894;
+    color: #000;
+    transition: all .5s ease 0s;
+}
+
+.btn--action:hover {
+    background-color: #c2fbd7;
+}
+
+
+
+.btn--action span {
+    display: inline-block;
+    position: relative;
+    transition: all .5s ease;
+}
+
+.btn--action span:before {
+    content: '\f53a';
+    color: #000;
+    font-size: 1rem;
+    font-family: FontAwesome;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 1.5rem;
+    opacity: 0;
+    transition: all .1s ease 0s;
+}
+
+.btn--action:hover span {
+    padding-left: 1.5rem;
+}
+
+.btn--action:hover span:before {
+    left: 0;
+    opacity: 1;
+    top: 0;
+}
+
+.btn--action:active {
+    box-shadow: 0 5px #f0932b;
+    transform: translateY(5px);
+}
+
+.glassmorphism {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}

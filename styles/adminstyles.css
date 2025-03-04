@@ -1,0 +1,383 @@
+body {
+    background-color: #f0f7f4;
+    /* Light mint background for a fresh look */
+    color: #333;
+    /* Dark gray text for contrast */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Vertical Navbar */
+.navbar-vertical {
+    width: 250px;
+    background-color: #ffffff;
+    /* White navbar for contrast */
+    border-right: 1px solid #a5d6a7;
+    /* Soft mint border */
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding-top: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+}
+
+.navbar-vertical.collapsed {
+    width: 60px;
+    /* Collapsed width */
+}
+
+.navbar-vertical .nav-link {
+    color: #333;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.navbar-vertical .nav-link:hover {
+    background-color: #e8f5e9;
+    /* Light mint hover effect */
+    color: #2ecc71;
+    /* Mint green on hover */
+    transform: scale(1.05);
+}
+
+.navbar-vertical .nav-link i {
+    margin-right: 10px;
+}
+
+.navbar-vertical .nav-link span {
+    white-space: nowrap;
+}
+
+.navbar-vertical.collapsed .nav-link span {
+    display: none;
+    /* Hide text when collapsed */
+}
+
+.navbar-vertical .navbar-brand {
+    color: #2ecc71;
+    font-weight: bold;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+/* Hamburger Button */
+.navbar-toggle {
+    display: none;
+    background-color: #2ecc71;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1100;
+}
+
+.navbar-toggle:hover {
+    background-color: #27ae60;
+    transform: scale(1.05);
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 250px;
+    /* Width of navbar */
+    width: calc(100% - 250px);
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.collapsed {
+    margin-left: 60px;
+    /* Collapsed navbar width */
+    width: calc(100% - 60px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-vertical {
+        width: 0;
+        visibility: hidden;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .main-content.expanded {
+        margin-left: 250px;
+        width: calc(100% - 250px);
+    }
+
+    .navbar-vertical.expanded {
+        width: 250px;
+        visibility: visible;
+    }
+}
+
+
+.nav-link {
+    color: black !important;
+    font-weight: 500;
+    margin: 0 15px;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease-in-out;
+}
+
+
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+
+
+.custom-card {
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.custom-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.icon-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px;
+    font-size: 30px;
+    color: white;
+}
+
+
+.badge {
+    background-color: #e3f2fd;
+    color: #007bff;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+
+
+
+.chart-container {
+    width: 50%;
+    margin: auto;
+}
+
+#hero {
+    margin-top: 100px;
+}
+
+.container {
+    background-color: #ffffff;
+    /* White container for contrast */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+}
+
+.d-flex {
+    transition: all 0.3s ease;
+    /* Smooth transitions for header animations */
+}
+
+.d-flex:hover {
+    transform: scale(1.02);
+    /* Slight zoom on hover for interactivity */
+}
+
+h2 {
+    color: #2ecc71;
+    /* Vibrant mint green heading */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    /* Subtle text shadow */
+}
+
+.btn-primary {
+    background-color: #2ecc71;
+    /* Bright mint green button */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #27ae60;
+    /* Darker mint green on hover */
+    transform: scale(1.05);
+    /* Slight scale on hover for interactivity */
+}
+
+.form-select,
+.form-control {
+    background-color: #e8f5e9;
+    /* Light mint input background */
+    border: 1px solid #a5d6a7;
+    /* Soft mint border */
+    color: #333;
+    /* Dark gray text */
+}
+
+.form-select:focus,
+.form-control:focus {
+    background-color: #dcedc8;
+    /* Slightly lighter mint on focus */
+    border-color: #2ecc71;
+    /* Mint green border on focus */
+    box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
+    /* Mint green glow */
+}
+
+.table-container {
+    max-height: 400px;
+    /* Scrollable height */
+    overflow-y: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    /* White table background */
+}
+
+.table {
+    color: #333;
+    /* Dark gray text in table */
+    background-color: #ffffff;
+    /* White table rows */
+}
+
+.table th {
+    background-color: #2ecc71;
+    /* Mint green header for contrast */
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* Uppercase for emphasis */
+}
+
+.table td {
+    border-color: #a5d6a7;
+    /* Soft mint border for cells */
+    padding: 8px 12px;
+    /* Consistent padding */
+    vertical-align: middle;
+    /* Center content vertically */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+    transition: background-color 0.3s ease;
+    /* Smooth background transition */
+}
+
+.table tr:hover td {
+    background-color: #e8f5e9;
+    /* Light mint hover effect on rows */
+}
+
+.action-btn {
+    margin-right: 5px;
+}
+
+.btn-warning {
+    background-color: #f1c40f;
+    /* Bright yellow edit button for contrast */
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #d4a017;
+    /* Darker yellow on hover */
+    transform: scale(1.05);
+}
+
+.ott-icon {
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.ott-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 0;
+}
+
+.ott-validity-input {
+    width: 100px;
+    padding: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    border: 1px solid #a5d6a7;
+    border-radius: 4px;
+    background-color: #e8f5e9;
+    color: #333;
+}
+
+.ott-validity-input:focus {
+    border-color: #2ecc71;
+    box-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
+}
+
+.modal-content {
+    background-color: #ffffff;
+    /* White modal background */
+    color: #333;
+    border-radius: 10px;
+}
+
+.modal-header {
+    background-color: #2ecc71;
+    /* Mint green modal header */
+    border-bottom: 1px solid #a5d6a7;
+}
+
+.modal-body {
+    background-color: #e8f5e9;
+    /* Light mint modal body */
+}
+
+.modal-footer {
+    background-color: #ffffff;
+    border-top: 1px solid #a5d6a7;
+}
+
+.modal-body table {
+    overflow-x: auto;
+}

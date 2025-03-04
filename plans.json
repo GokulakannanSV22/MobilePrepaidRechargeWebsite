@@ -1,0 +1,1654 @@
+{
+  "categories": [
+    {
+      "id": "recommendedPlans",
+      "name": "Top Picks, Just for You!",
+      "plans": [
+        {
+          "id": "bestSeller",
+          "title": "BestSeller",
+          "data": "2GB/day",
+          "validity": 30,
+          "price": 499,
+          "voice": "Unlimited",
+          "description": "Includes Netflix subscription.",
+          "ottDetails": [
+            {
+              "platform": "Netflix",
+              "validity": "90 Days",
+              "icon": "bi bi-film"
+            }
+          ]
+        },
+        {
+          "id": "powerPlay",
+          "title": "PowerPlay",
+          "data": "3GB/day",
+          "validity": 30,
+          "price": 799,
+          "voice": "Unlimited",
+          "description": "Includes Disney+ Hotstar & Prime Video subscriptions.",
+          "ottDetails": [
+            {
+              "platform": "Disney+ Hotstar",
+              "validity": "45 Days",
+              "icon": "fa-regular fa-star"
+            },
+            {
+              "platform": "Amazon Prime",
+              "validity": "60 Days",
+              "icon": "fab fa-amazon"
+            }
+          ]
+        },
+        {
+          "id": "xtremeNet",
+          "title": "XtremeNet",
+          "data": "Unlimited 4G",
+          "validity": 30,
+          "price": 499,
+          "voice": "Unlimited",
+          "description": "No OTT Benefits included.",
+          "ottDetails": []
+        },
+        {
+          "id": "allRounder",
+          "title": "All-Rounder",
+          "data": "2.5GB/day",
+          "validity": 56,
+          "price": 599,
+          "voice": "Unlimited",
+          "description": "No OTT Benefits included.",
+          "ottDetails": []
+        },
+        {
+          "id": "maxSaver",
+          "title": "MaxSaver",
+          "data": "1.5GB/day",
+          "validity": 84,
+          "price": 699,
+          "voice": "Unlimited",
+          "description": "No OTT Benefits included.",
+          "ottDetails": []
+        },
+        {
+          "id": "streamFlex",
+          "title": "StreamFlex",
+          "data": "3GB/day",
+          "validity": 30,
+          "price": 799,
+          "voice": "Unlimited",
+          "description": "Includes Netflix & Disney+ Hotstar subscriptions.",
+          "ottDetails": [
+            {
+              "platform": "Netflix",
+              "validity": "90 Days",
+              "icon": "bi bi-film"
+            },
+            {
+              "platform": "Amazon Prime",
+              "validity": "60 Days",
+              "icon": "fab fa-amazon"
+            }
+          ]
+        },
+        {
+          "id": "infinityGo",
+          "title": "InfinityGo",
+          "data": "Unlimited 5G",
+          "validity": 45,
+          "price": 899,
+          "voice": "Unlimited",
+          "description": "No OTT Benefits included.",
+          "ottDetails": []
+        },
+        {
+          "id": "supremePlan",
+          "title": "Supreme Plan",
+          "data": "5GB/day",
+          "validity": 90,
+          "price": 999,
+          "voice": "Unlimited",
+          "description": "No OTT Benefits included.",
+          "ottDetails": []
+        },
+        {
+          "id": "eliteConnect",
+          "title": "EliteConnect",
+          "data": "Unlimited global roaming",
+          "validity": 120,
+          "price": 1199,
+          "voice": "Unlimited",
+          "description": "Includes Amazon Prime & SonyLIV subscriptions.",
+          "ottDetails": [
+            {
+              "platform": "Amazon Prime",
+              "validity": "60 Days",
+              "icon": "fab fa-amazon"
+            },
+            {
+              "platform": "SonyLIV",
+              "validity": "75 Days",
+              "icon": "fas fa-tv"
+            }
+          ]
+        },
+        {
+          "id": "ultimatePack",
+          "title": "UltimatePack",
+          "data": "Unlimited 5G",
+          "validity": 180,
+          "price": 1499,
+          "voice": "Unlimited",
+          "description": "Includes Netflix, Disney+ Hotstar & Spotify Premium subscriptions.",
+          "ottDetails": [
+            {
+              "platform": "Netflix",
+              "validity": "90 Days",
+              "icon": "bi bi-film"
+            },
+            {
+              "platform": "Disney+ Hotstar",
+              "validity": "45 Days",
+              "icon": "fa-regular fa-star"
+            },
+            {
+              "platform": "Spotify Premium",
+              "validity": "120 Days",
+              "icon": "fab fa-spotify"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "absoluteUnlimited",
+      "name": "Absolute Unlimited – True Freedom, No Limits!",
+      "plans": [
+        {
+          "id": "freeFlow",
+          "title": "FreeFlow",
+          "data": "Unlimited 4G",
+          "validity": 28,
+          "price": 399,
+          "voice": "Unlimited",
+          "description": "No OTT Benefits included.",
+          "ottDetails": []
+        },
+        {
+          "id": "infinityMax",
+          "title": "InfinityMax",
+          "data": "Unlimited 4G/5G",
+          "validity": 30,
+          "price": 499,
+          "voice": "Unlimited",
+          "description": "No OTT Benefits included.",
+          "ottDetails": []
+        },
+        {
+          "id": "ultraStream",
+          "title": "UltraStream",
+          "data": "Unlimited 5G",
+          "validity": 30,
+          "price": 599,
+          "voice": "Unlimited",
+          "description": "Includes Netflix.",
+          "ottDetails": [
+            {
+              "platform": "Netflix",
+              "validity": "30 Days",
+              "icon": "bi bi-film"
+            }
+          ]
+        },
+        {
+          "id": "powerUnleashed",
+          "title": "PowerUnleashed",
+          "data": "Unlimited 5G",
+          "validity": 45,
+          "price": 699,
+          "voice": "Unlimited",
+          "description": "Includes Disney+ Hotstar.",
+          "ottDetails": [
+            {
+              "platform": "Disney+ Hotstar",
+              "validity": "45 Days",
+              "icon": "fa-regular fa-star"
+            }
+          ]
+        },
+        {
+          "id": "supremeConnect",
+          "title": "SupremeConnect",
+          "data": "Unlimited 5G",
+          "validity": 60,
+          "price": 799,
+          "voice": "Unlimited",
+          "description": "Includes Amazon Prime.",
+          "ottDetails": [
+            {
+              "platform": "Amazon Prime",
+              "validity": "60 Days",
+              "icon": "fab fa-amazon"
+            }
+          ]
+        },
+        {
+          "id": "boundlessX",
+          "title": "BoundlessX",
+          "data": "Unlimited 5G",
+          "validity": 75,
+          "price": 899,
+          "voice": "Unlimited",
+          "description": "Includes SonyLIV & Zee5.",
+          "ottDetails": [
+            {
+              "platform": "SonyLIV",
+              "validity": "75 Days",
+              "icon": "fas fa-tv"
+            },
+            {
+              "platform": "Zee5",
+              "validity": "75 Days",
+              "icon": "fas fa-tv"
+            }
+          ]
+        },
+        {
+          "id": "theUltimate",
+          "title": "The Ultimate",
+          "data": "Unlimited 5G",
+          "validity": 90,
+          "price": 999,
+          "voice": "Unlimited",
+          "description": "Includes Netflix, Disney+ Hotstar.",
+          "ottDetails": [
+            {
+              "platform": "Netflix",
+              "validity": "90 Days",
+              "icon": "bi bi-film"
+            },
+            {
+              "platform": "Disney+ Hotstar",
+              "validity": "90 Days",
+              "icon": "fa-regular fa-star"
+            }
+          ]
+        },
+        {
+          "id": "limitlessPro",
+          "title": "LimitlessPro",
+          "data": "Unlimited 5G",
+          "validity": 120,
+          "price": 1099,
+          "voice": "Unlimited",
+          "description": "Includes Netflix, Prime Video, Spotify Premium.",
+          "ottDetails": [
+            {
+              "platform": "Netflix",
+              "validity": "120 Days",
+              "icon": "bi bi-film"
+            },
+            {
+              "platform": "Prime Video",
+              "validity": "120 Days",
+              "icon": "fab fa-amazon"
+            },
+            {
+              "platform": "Spotify Premium",
+              "validity": "120 Days",
+              "icon": "fab fa-spotify"
+            }
+          ]
+        },
+        {
+          "id": "peakPerformance",
+          "title": "PeakPerformance",
+          "data": "Unlimited 5G",
+          "validity": 150,
+          "price": 1299,
+          "voice": "Unlimited",
+          "description": "Includes Netflix, Prime Video, Spotify Premium.",
+          "ottDetails": [
+            {
+              "platform": "Netflix",
+              "validity": "150 Days",
+              "icon": "bi bi-film"
+            },
+            {
+              "platform": "Prime Video",
+              "validity": "150 Days",
+              "icon": "fab fa-amazon"
+            },
+            {
+              "platform": "Spotify Premium",
+              "validity": "150 Days",
+              "icon": "fab fa-spotify"
+            }
+          ]
+        },
+        {
+          "id": "totalFreedom",
+          "title": "TotalFreedom",
+          "data": "Unlimited 5G",
+          "validity": 180,
+          "price": 1499,
+          "voice": "Unlimited",
+          "description": "Includes Netflix, Disney+ Hotstar, Amazon Prime, Spotify, YouTube Premium.",
+          "ottDetails": [
+            {
+              "platform": "Netflix",
+              "validity": "180 Days",
+              "icon": "bi bi-film"
+            },
+            {
+              "platform": "Disney+ Hotstar",
+              "validity": "180 Days",
+              "icon": "fa-regular fa-star"
+            },
+            {
+              "platform": "Amazon Prime",
+              "validity": "180 Days",
+              "icon": "fab fa-amazon"
+            },
+            {
+              "platform": "Spotify",
+              "validity": "180 Days",
+              "icon": "fab fa-spotify"
+            },
+            {
+              "platform": "YouTube Premium",
+              "validity": "180 Days",
+              "icon": "fa-brands fa-youtube"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "DataBooster",
+      "name": "DataBooster Plans",
+      "plans": [
+        {
+          "id": "InstaBoost",
+          "title": "InstaBoost",
+          "data": "1GB",
+          "validity": 1,
+          "price": 19,
+          "voice": "None",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "SpeedShot",
+          "title": "SpeedShot",
+          "data": "2GB",
+          "validity": 2,
+          "price": 29,
+          "voice": "None",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "DataRush",
+          "title": "DataRush",
+          "data": "3GB",
+          "validity": 3,
+          "price": 49,
+          "voice": "None",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "TurboTop-Up",
+          "title": "TurboTop-Up",
+          "data": "5GB",
+          "validity": 7,
+          "price": 79,
+          "voice": "None",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "ExpressBoost",
+          "title": "ExpressBoost",
+          "data": "7GB",
+          "validity": 10,
+          "price": 99,
+          "voice": "None",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "HyperSurge",
+          "title": "HyperSurge",
+          "data": "10GB",
+          "validity": 14,
+          "price": 129,
+          "voice": "None",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "FlashSpeed",
+          "title": "FlashSpeed",
+          "data": "15GB",
+          "validity": 15,
+          "price": 149,
+          "voice": "None",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "MaxPower",
+          "title": "MaxPower",
+          "data": "20GB",
+          "validity": 20,
+          "price": 199,
+          "voice": "None",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "InfinityBurst",
+          "title": "InfinityBurst",
+          "data": "30GB",
+          "validity": 30,
+          "price": 249,
+          "voice": "None",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "UltimateData",
+          "title": "UltimateData",
+          "data": "50GB",
+          "validity": 45,
+          "price": 299,
+          "voice": "None",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SaverPlans",
+      "name": "pocketFriendly Plans",
+      "plans": [
+        {
+          "id": "SaverPlan",
+          "title": "SaverPlan",
+          "data": "1GB/day",
+          "validity": 14,
+          "price": 99,
+          "voice": "Unlimited",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "ValueBoost",
+          "title": "ValueBoost",
+          "data": "1.5GB/day",
+          "validity": 28,
+          "price": 149,
+          "voice": "Unlimited",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "SmartSaver",
+          "title": "SmartSaver",
+          "data": "2GB/day",
+          "validity": 28,
+          "price": 199,
+          "voice": "Unlimited",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "LitePlan",
+          "title": "LitePlan",
+          "data": "1.5GB/day",
+          "validity": 35,
+          "price": 249,
+          "voice": "Unlimited",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "EconomyPack",
+          "title": "EconomyPack",
+          "data": "2GB/day",
+          "validity": 40,
+          "price": 299,
+          "voice": "Unlimited",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "BudgetX",
+          "title": "BudgetX",
+          "data": "2GB/day",
+          "validity": 50,
+          "price": 349,
+          "voice": "Unlimited",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "SimpleNet",
+          "title": "SimpleNet",
+          "data": "1.5GB/day",
+          "validity": 56,
+          "price": 399,
+          "voice": "Unlimited",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "MoneySaver",
+          "title": "MoneySaver",
+          "data": "2GB/day",
+          "validity": 60,
+          "price": 449,
+          "voice": "Unlimited",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "SmartChoice",
+          "title": "SmartChoice",
+          "data": "2GB/day",
+          "validity": 75,
+          "price": 499,
+          "voice": "Unlimited",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "EssentialPlan",
+          "title": "EssentialPlan",
+          "data": "1.5GB/day",
+          "validity": 84,
+          "price": 549,
+          "voice": "Unlimited",
+          "description": "No OTT benefits.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "EntertainmentPlans",
+      "name": "Entertainment  Plans",
+      "plans": [
+        {
+          "id": "BingeMax",
+          "title": "BingeMax",
+          "data": "2GB/day",
+          "validity": 28,
+          "price": 299,
+          "voice": "Unlimited",
+          "description": "Includes Disney+ Hotstar Mobile.",
+          "ottDetails": [
+            {
+              "platform": "Disney+ Hotstar Mobile",
+              "validity": "28 Days",
+              "icon": "fa-regular fa-star"
+            }
+          ]
+        },
+        {
+          "id": "StreamElite",
+          "title": "StreamElite",
+          "data": "3GB/day",
+          "validity": 30,
+          "price": 399,
+          "voice": "Unlimited",
+          "description": "Includes Amazon Prime Video.",
+          "ottDetails": [
+            {
+              "platform": "Amazon Prime Video",
+              "validity": "30 Days",
+              "icon": "fab fa-amazon"
+            }
+          ]
+        },
+        {
+          "id": "PlayOn",
+          "title": "PlayOn",
+          "data": "2GB/day",
+          "validity": 30,
+          "price": 499,
+          "voice": "Unlimited",
+          "description": "Includes SonyLIV Premium.",
+          "ottDetails": [
+            {
+              "platform": "SonyLIV Premium",
+              "validity": "30 Days",
+              "icon": "fa-solid fa-tv"
+            }
+          ]
+        },
+        {
+          "id": "ReelRush",
+          "title": "ReelRush",
+          "data": "2.5GB/day",
+          "validity": 56,
+          "price": 599,
+          "voice": "Unlimited",
+          "description": "Includes Netflix Mobile.",
+          "ottDetails": [
+            {
+              "platform": "Netflix Mobile",
+              "validity": "56 Days",
+              "icon": "bi bi-film"
+            }
+          ]
+        },
+        {
+          "id": "PrimeView",
+          "title": "PrimeView",
+          "data": "1.5GB/day",
+          "validity": 84,
+          "price": 699,
+          "voice": "Unlimited",
+          "description": "Includes Amazon Prime & Zee5.",
+          "ottDetails": [
+            {
+              "platform": "Amazon Prime",
+              "validity": "84 Days",
+              "icon": "fab fa-amazon"
+            },
+            {
+              "platform": "Zee5",
+              "validity": "84 Days",
+              "icon": "fa-solid fa-play"
+            }
+          ]
+        },
+        {
+          "id": "UltraBinge",
+          "title": "UltraBinge",
+          "data": "3GB/day",
+          "validity": 30,
+          "price": 799,
+          "voice": "Unlimited",
+          "description": "Includes Netflix, Hotstar & SonyLIV.",
+          "ottDetails": [
+            {
+              "platform": "Netflix",
+              "validity": "30 Days",
+              "icon": "bi bi-film"
+            },
+            {
+              "platform": "Disney+ Hotstar",
+              "validity": "30 Days",
+              "icon": "fa-regular fa-star"
+            },
+            {
+              "platform": "SonyLIV",
+              "validity": "30 Days",
+              "icon": "fa-solid fa-tv"
+            }
+          ]
+        },
+        {
+          "id": "CineBuff",
+          "title": "CineBuff",
+          "data": "Unlimited 5G",
+          "validity": 45,
+          "price": 899,
+          "voice": "Unlimited",
+          "description": "Includes Netflix Premium.",
+          "ottDetails": [
+            {
+              "platform": "Netflix Premium",
+              "validity": "45 Days",
+              "icon": "bi bi-film"
+            }
+          ]
+        },
+        {
+          "id": "AllAccess",
+          "title": "AllAccess",
+          "data": "5GB/day",
+          "validity": 90,
+          "price": 999,
+          "voice": "Unlimited",
+          "description": "Includes all major OTT platforms.",
+          "ottDetails": [
+            {
+              "platform": "All Major OTT Platforms",
+              "validity": "90 Days",
+              "icon": "fa-solid fa-globe"
+            }
+          ]
+        },
+        {
+          "id": "VIPStream",
+          "title": "VIPStream",
+          "data": "Unlimited 5G",
+          "validity": 120,
+          "price": 1199,
+          "voice": "Unlimited",
+          "description": "Includes Disney+ Hotstar, Amazon Prime & SonyLIV.",
+          "ottDetails": [
+            {
+              "platform": "Disney+ Hotstar",
+              "validity": "120 Days",
+              "icon": "fa-regular fa-star"
+            },
+            {
+              "platform": "Amazon Prime",
+              "validity": "120 Days",
+              "icon": "fab fa-amazon"
+            },
+            {
+              "platform": "SonyLIV",
+              "validity": "120 Days",
+              "icon": "fa-solid fa-tv"
+            }
+          ]
+        },
+        {
+          "id": "MegaBundle",
+          "title": "MegaBundle",
+          "data": "Unlimited 5G",
+          "validity": 180,
+          "price": 1499,
+          "voice": "Unlimited",
+          "description": "Includes Netflix, Disney+ Hotstar, Prime Video & Spotify.",
+          "ottDetails": [
+            {
+              "platform": "Netflix",
+              "validity": "180 Days",
+              "icon": "bi bi-film"
+            },
+            {
+              "platform": "Disney+ Hotstar",
+              "validity": "180 Days",
+              "icon": "fa-regular fa-star"
+            },
+            {
+              "platform": "Amazon Prime Video",
+              "validity": "180 Days",
+              "icon": "fab fa-amazon"
+            },
+            {
+              "platform": "Spotify",
+              "validity": "180 Days",
+              "icon": "fab fa-spotify"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gamingPlans",
+      "name": "Gaming Plans",
+      "plans": [
+        {
+          "id": "GamersBoost",
+          "title": "Gamer’s Boost",
+          "data": "4GB/day",
+          "validity": 30,
+          "price": 499,
+          "voice": "Unlimited",
+          "description": "Includes Xbox Game Pass & Netflix Mobile.",
+          "ottDetails": [
+            {
+              "platform": "Xbox Game Pass",
+              "validity": "30 Days",
+              "icon": "fa-brands fa-xbox"
+            },
+            {
+              "platform": "Netflix Mobile",
+              "validity": "30 Days",
+              "icon": "bi bi-film"
+            }
+          ]
+        },
+        {
+          "id": "UltimateGamer",
+          "title": "Ultimate Gamer",
+          "data": "5GB/day",
+          "validity": 90,
+          "price": 999,
+          "voice": "Unlimited",
+          "description": "Includes Netflix, Amazon Prime & PlayStation Plus.",
+          "ottDetails": [
+            {
+              "platform": "Netflix",
+              "validity": "90 Days",
+              "icon": "bi bi-film"
+            },
+            {
+              "platform": "Amazon Prime",
+              "validity": "90 Days",
+              "icon": "fab fa-amazon"
+            },
+            {
+              "platform": "PlayStation Plus",
+              "validity": "90 Days",
+              "icon": "fa-brands fa-playstation"
+            }
+          ]
+        },
+        {
+          "id": "ProGamer",
+          "title": "Pro Gamer",
+          "data": "3GB/day",
+          "validity": 60,
+          "price": 799,
+          "voice": "Unlimited",
+          "description": "Includes YouTube Premium & 1-month Stadia Pro.",
+          "ottDetails": [
+            {
+              "platform": "YouTube Premium",
+              "validity": "60 Days",
+              "icon": "fa-brands fa-youtube"
+            },
+            {
+              "platform": "Stadia Pro",
+              "validity": "1 Month",
+              "icon": "fa-solid fa-gamepad"
+            }
+          ]
+        },
+        {
+          "id": "HighSpeedGamer",
+          "title": "High-Speed Gamer",
+          "data": "6GB/day",
+          "validity": 30,
+          "price": 699,
+          "voice": "Unlimited",
+          "description": "Includes gaming content on YouTube & Twitch Premium.",
+          "ottDetails": [
+            {
+              "platform": "YouTube Gaming",
+              "validity": "30 Days",
+              "icon": "fa-brands fa-youtube"
+            },
+            {
+              "platform": "Twitch Premium",
+              "validity": "30 Days",
+              "icon": "fa-brands fa-twitch"
+            }
+          ]
+        },
+        {
+          "id": "GamersArena",
+          "title": "Gamer’s Arena",
+          "data": "8GB/day",
+          "validity": 90,
+          "price": 1199,
+          "voice": "Unlimited",
+          "description": "Includes Netflix, Amazon Prime & premium online multiplayer gaming.",
+          "ottDetails": [
+            {
+              "platform": "Netflix",
+              "validity": "90 Days",
+              "icon": "bi bi-film"
+            },
+            {
+              "platform": "Amazon Prime",
+              "validity": "90 Days",
+              "icon": "fab fa-amazon"
+            },
+            {
+              "platform": "Premium Multiplayer Gaming",
+              "validity": "90 Days",
+              "icon": "fa-solid fa-users"
+            }
+          ]
+        },
+        {
+          "id": "EsportsPro",
+          "title": "Esports Pro",
+          "data": "20GB/day",
+          "validity": 180,
+          "price": 1499,
+          "voice": "Unlimited",
+          "description": "Includes eSports content, Netflix & a 6-month Epic Games Store subscription.",
+          "ottDetails": []
+        },
+        {
+          "id": "valorant",
+          "title": "Valorant_exclusive",
+          "data": "10GB/day",
+          "validity": 123,
+          "price": 1234,
+          "voice": "Unlimited",
+          "ottDetails": []
+        }
+      ]
+    },
+    {
+      "id": "xlr8DataPlans",
+      "name": "XLR8 Data",
+      "plans": [
+        {
+          "id": "WarpSpeed",
+          "title": "WarpSpeed 299",
+          "data": "2GB/day",
+          "validity": 28,
+          "price": 299,
+          "voice": "Unlimited",
+          "description": "No OTT benefits included.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "HyperConnect",
+          "title": "HyperConnect 399",
+          "data": "3GB/day",
+          "validity": 30,
+          "price": 399,
+          "voice": "Unlimited",
+          "description": "No OTT benefits included.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "BlazeStream",
+          "title": "BlazeStream 499",
+          "data": "Unlimited 4G",
+          "validity": 30,
+          "price": 499,
+          "voice": "Unlimited",
+          "description": "No OTT benefits included.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "NitroSpeed",
+          "title": "NitroSpeed 599",
+          "data": "2.5GB/day",
+          "validity": 56,
+          "price": 599,
+          "voice": "Unlimited",
+          "description": "No OTT benefits included.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "WarpConnect",
+          "title": "WarpConnect 699",
+          "data": "1.5GB/day",
+          "validity": 84,
+          "price": 699,
+          "voice": "Unlimited",
+          "description": "No OTT benefits included.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "UltraSurge",
+          "title": "UltraSurge 799",
+          "data": "3GB/day",
+          "validity": 30,
+          "price": 799,
+          "voice": "Unlimited",
+          "description": "Includes Netflix & Disney+ Hotstar.",
+          "ottDetails": [
+            {
+              "platform": "Netflix",
+              "validity": "30 Days",
+              "icon": "bi bi-film"
+            },
+            {
+              "platform": "Disney+ Hotstar",
+              "validity": "30 Days",
+              "icon": "fa-regular fa-star"
+            }
+          ]
+        },
+        {
+          "id": "MaxFlow",
+          "title": "MaxFlow 899",
+          "data": "Unlimited 5G",
+          "validity": 45,
+          "price": 899,
+          "voice": "Unlimited",
+          "description": "No OTT benefits included.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "PowerStream",
+          "title": "PowerStream 999",
+          "data": "5GB/day",
+          "validity": 90,
+          "price": 999,
+          "voice": "Unlimited",
+          "description": "No OTT benefits included.",
+          "ottDetails": [
+            {
+              "platform": "None",
+              "validity": "None",
+              "icon": "None"
+            }
+          ]
+        },
+        {
+          "id": "InfinitySpeed",
+          "title": "InfinitySpeed 1199",
+          "data": "Unlimited global roaming",
+          "validity": 120,
+          "price": 1199,
+          "voice": "Unlimited",
+          "description": "Includes Amazon Prime & SonyLIV.",
+          "ottDetails": [
+            {
+              "platform": "Amazon Prime",
+              "validity": "120 Days",
+              "icon": "fab fa-amazon"
+            },
+            {
+              "platform": "SonyLIV",
+              "validity": "120 Days",
+              "icon": "fa-solid fa-tv"
+            }
+          ]
+        },
+        {
+          "id": "PeakVelocity",
+          "title": "PeakVelocity 1499",
+          "data": "Unlimited 5G",
+          "validity": 180,
+          "price": 1499,
+          "voice": "Unlimited",
+          "description": "Includes Netflix, Disney+ Hotstar & Spotify Premium.",
+          "ottDetails": [
+            {
+              "platform": "Netflix",
+              "validity": "180 Days",
+              "icon": "bi bi-film"
+            },
+            {
+              "platform": "Disney+ Hotstar",
+              "validity": "180 Days",
+              "icon": "fa-regular fa-star"
+            },
+            {
+              "platform": "Spotify Premium",
+              "validity": "180 Days",
+              "icon": "fab fa-spotify"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "customers": [
+    {
+      "customerId": "CUST1001",
+      "name": "Monk",
+      "mobile": "9876543210",
+      "email": "monk123@example.com",
+      "currentPlan": {
+        "planId": "bestSeller",
+        "title": "BestSeller",
+        "data": "2GB/day",
+        "validity": 30,
+        "price": 499,
+        "voice": "Unlimited",
+        "description": "Includes Netflix.",
+        "expiryDate": "2025-03-28"
+      },
+      "accountStatus": "Non-Active",
+      "rechargeHistory": [
+        {
+          "planId": "powerPlay",
+          "title": "PowerPlay",
+          "rechargeDate": "2025-01-28",
+          "expiryDate": "2025-02-28",
+          "price": 799
+        },
+        {
+          "planId": "xtremeNet",
+          "title": "XtremeNet",
+          "rechargeDate": "2024-12-28",
+          "expiryDate": "2025-01-28",
+          "price": 499
+        }
+      ],
+      "id": "0e3f"
+    },
+    {
+      "customerId": "CUST1002",
+      "name": "Gokulakannan",
+      "mobile": "9876543211",
+      "email": "gokul@example.com",
+      "currentPlan": {
+        "planId": "infinityGo",
+        "title": "InfinityGo",
+        "data": "Unlimited 5G",
+        "validity": 45,
+        "price": 899,
+        "voice": "Unlimited",
+        "description": "No OTT benefits.",
+        "expiryDate": "2025-04-12"
+      },
+      "accountStatus": "Non-Active",
+      "rechargeHistory": [
+        {
+          "planId": "streamFlex",
+          "title": "StreamFlex",
+          "rechargeDate": "2025-02-12",
+          "expiryDate": "2025-03-12",
+          "price": 799
+        },
+        {
+          "planId": "maxSaver",
+          "title": "MaxSaver",
+          "rechargeDate": "2024-11-12",
+          "expiryDate": "2025-02-12",
+          "price": 699
+        }
+      ],
+      "id": "86b4"
+    },
+    {
+      "customerId": "CUST1003",
+      "name": "Dhanush",
+      "mobile": "9876543212",
+      "email": "dhanush@example.com",
+      "currentPlan": {
+        "planId": "supremePlan",
+        "title": "Supreme Plan",
+        "data": "5GB/day",
+        "validity": 90,
+        "price": 999,
+        "voice": "Unlimited",
+        "description": "No OTT benefits.",
+        "expiryDate": "2025-05-01"
+      },
+      "accountStatus": "Active",
+      "rechargeHistory": [
+        {
+          "planId": "ultimatePack",
+          "title": "UltimatePack",
+          "rechargeDate": "2025-01-01",
+          "expiryDate": "2025-04-01",
+          "price": 1499
+        }
+      ],
+      "id": "2096"
+    },
+    {
+      "customerId": "CUST1004",
+      "name": "varun",
+      "mobile": "9876543213",
+      "email": "varun@example.com",
+      "currentPlan": {
+        "planId": "eliteConnect",
+        "title": "EliteConnect",
+        "data": "Unlimited global roaming",
+        "validity": 120,
+        "price": 1199,
+        "voice": "Unlimited",
+        "description": "Includes Amazon Prime & SonyLIV.",
+        "expiryDate": "2025-06-15"
+      },
+      "accountStatus": "Active",
+      "rechargeHistory": [
+        {
+          "planId": "infinityGo",
+          "title": "InfinityGo",
+          "rechargeDate": "2024-12-15",
+          "expiryDate": "2025-04-15",
+          "price": 899
+        }
+      ],
+      "id": "4a63"
+    },
+    {
+      "customerId": "CUST1005",
+      "name": "gopi",
+      "mobile": "9876543214",
+      "email": "gopi123@example.com",
+      "currentPlan": {
+        "planId": "ultimatePack",
+        "title": "UltimatePack",
+        "data": "Unlimited 5G",
+        "validity": 180,
+        "price": 1499,
+        "voice": "Unlimited",
+        "description": "Includes Netflix, Disney+ Hotstar & Spotify Premium.",
+        "expiryDate": "2025-08-20"
+      },
+      "accountStatus": "Active",
+      "rechargeHistory": [
+        {
+          "planId": "supremePlan",
+          "title": "Supreme Plan",
+          "rechargeDate": "2025-02-20",
+          "expiryDate": "2025-05-20",
+          "price": 999
+        }
+      ],
+      "id": "9eab"
+    },
+    {
+      "customerId": "CUST2001",
+      "name": "KamalRaj",
+      "mobile": "9876543220",
+      "email": "kamal345@example.com",
+      "currentPlan": {
+        "planId": "streamFlex",
+        "title": "StreamFlex",
+        "data": "3GB/day",
+        "validity": 30,
+        "price": 799,
+        "voice": "Unlimited",
+        "description": "Includes Netflix & Disney+ Hotstar.",
+        "expiryDate": "2025-04-10"
+      },
+      "accountStatus": "Active",
+      "rechargeHistory": [
+        {
+          "planId": "powerPlay",
+          "title": "PowerPlay",
+          "rechargeDate": "2025-02-10",
+          "expiryDate": "2025-03-10",
+          "price": 799
+        }
+      ],
+      "id": "aa14"
+    },
+    {
+      "customerId": "CUST2002",
+      "name": "Dante",
+      "mobile": "9876543221",
+      "email": "dante123@example.com",
+      "currentPlan": {
+        "planId": "allRounder",
+        "title": "All-Rounder",
+        "data": "2.5GB/day",
+        "validity": 56,
+        "price": 599,
+        "voice": "Unlimited",
+        "description": "No OTT benefits.",
+        "expiryDate": "2025-05-05"
+      },
+      "accountStatus": "Active",
+      "rechargeHistory": [
+        {
+          "planId": "bestSeller",
+          "title": "BestSeller",
+          "rechargeDate": "2025-03-05",
+          "expiryDate": "2025-04-05",
+          "price": 499
+        }
+      ],
+      "id": "91fc"
+    },
+    {
+      "customerId": "CUST2003",
+      "name": "kratos",
+      "mobile": "9876543222",
+      "email": "kratos@example.com",
+      "currentPlan": {
+        "planId": "supremePlan",
+        "title": "Supreme Plan",
+        "data": "5GB/day",
+        "validity": 90,
+        "price": 999,
+        "voice": "Unlimited",
+        "description": "No OTT benefits.",
+        "expiryDate": "2025-06-20"
+      },
+      "accountStatus": "Active",
+      "rechargeHistory": [
+        {
+          "planId": "xtremeNet",
+          "title": "XtremeNet",
+          "rechargeDate": "2025-02-20",
+          "expiryDate": "2025-05-20",
+          "price": 499
+        }
+      ],
+      "id": "950c"
+    },
+    {
+      "customerId": "CUST2004",
+      "name": "posiedon",
+      "mobile": "9876543223",
+      "email": "godofsea12@example.com",
+      "currentPlan": {
+        "planId": "eliteConnect",
+        "title": "EliteConnect",
+        "data": "Unlimited global roaming",
+        "validity": 120,
+        "price": 1199,
+        "voice": "Unlimited",
+        "description": "Includes Amazon Prime & SonyLIV.",
+        "expiryDate": "2025-07-01"
+      },
+      "accountStatus": "Active",
+      "rechargeHistory": [
+        {
+          "planId": "infinityGo",
+          "title": "InfinityGo",
+          "rechargeDate": "2025-03-01",
+          "expiryDate": "2025-06-01",
+          "price": 899
+        }
+      ],
+      "id": "5228"
+    },
+    {
+      "customerId": "CUST2005",
+      "name": "helios",
+      "mobile": "9876543224",
+      "email": "godofsun234@example.com",
+      "currentPlan": {
+        "planId": "ultimatePack",
+        "title": "UltimatePack",
+        "data": "Unlimited 5G",
+        "validity": 180,
+        "price": 1499,
+        "voice": "Unlimited",
+        "description": "Includes Netflix, Disney+ Hotstar & Spotify Premium.",
+        "expiryDate": "2025-09-15"
+      },
+      "accountStatus": "Active",
+      "rechargeHistory": [
+        {
+          "planId": "supremePlan",
+          "title": "Supreme Plan",
+          "rechargeDate": "2025-03-15",
+          "expiryDate": "2025-06-15",
+          "price": 999
+        }
+      ],
+      "id": "cf0c"
+    },
+    {
+      "customerId": "CUST3001",
+      "name": "Hades",
+      "mobile": "9876543230",
+      "email": "godofspeed@example.com",
+      "currentPlan": {
+        "planId": "maxSaver",
+        "title": "MaxSaver",
+        "data": "1.5GB/day",
+        "validity": 84,
+        "price": 699,
+        "voice": "Unlimited",
+        "description": "No OTT benefits.",
+        "expiryDate": "2025-03-01"
+      },
+      "accountStatus": "Active",
+      "rechargeHistory": [
+        {
+          "planId": "allRounder",
+          "title": "All-Rounder",
+          "rechargeDate": "2025-03-10",
+          "expiryDate": "2025-06-10",
+          "price": 599
+        }
+      ],
+      "id": "6e87"
+    },
+    {
+      "customerId": "CUST3002",
+      "name": "Zeus",
+      "mobile": "9876543231",
+      "email": "kingofgods12@example.com",
+      "currentPlan": {
+        "planId": "boundlessX",
+        "title": "BoundlessX",
+        "data": "Unlimited 5G",
+        "validity": 75,
+        "price": 899,
+        "voice": "Unlimited",
+        "description": "Includes SonyLIV & Zee5.",
+        "expiryDate": "2025-03-04"
+      },
+      "accountStatus": "Active",
+      "rechargeHistory": [
+        {
+          "planId": "powerUnleashed",
+          "title": "PowerUnleashed",
+          "rechargeDate": "2025-01-20",
+          "expiryDate": "2025-04-20",
+          "price": 699
+        }
+      ],
+      "id": "2fb4"
+    },
+    {
+      "customerId": "CUST3003",
+      "name": "Hades",
+      "mobile": "9876543232",
+      "email": "godofunderworld23@example.com",
+      "currentPlan": {
+        "planId": "totalFreedom",
+        "title": "TotalFreedom",
+        "data": "Unlimited 5G",
+        "validity": 180,
+        "price": 1499,
+        "voice": "Unlimited",
+        "description": "Includes Netflix, Disney+ Hotstar, Amazon Prime, Spotify, YouTube Premium.",
+        "expiryDate": "2025-03-04"
+      },
+      "accountStatus": "Active",
+      "rechargeHistory": [
+        {
+          "planId": "supremeConnect",
+          "title": "SupremeConnect",
+          "rechargeDate": "2024-12-10",
+          "expiryDate": "2025-03-05",
+          "price": 799
+        }
+      ],
+      "id": "a730"
+    },
+    {
+      "customerId": "CUST3004",
+      "name": "hercules",
+      "mobile": "9876543233",
+      "email": "godofstrength23@example.com",
+      "currentPlan": {
+        "planId": "hyperConnect",
+        "title": "HyperConnect 399",
+        "data": "3GB/day",
+        "validity": 30,
+        "price": 399,
+        "voice": "Unlimited",
+        "description": "No OTT benefits included.",
+        "expiryDate": "2025-03-03"
+      },
+      "accountStatus": "Active",
+      "rechargeHistory": [
+        {
+          "planId": "streamFlex",
+          "title": "StreamFlex",
+          "rechargeDate": "2025-02-15",
+          "expiryDate": "2025-03-15",
+          "price": 799
+        }
+      ],
+      "id": "7a2c"
+    },
+    {
+      "customerId": "CUST3005",
+      "name": "Kratos",
+      "mobile": "9876543234",
+      "email": "godofhope12@example.com",
+      "currentPlan": {
+        "planId": "ultimateGamer",
+        "title": "Ultimate Gamer",
+        "data": "5GB/day",
+        "validity": 90,
+        "price": 999,
+        "voice": "Unlimited",
+        "description": "Includes Netflix, Amazon Prime & PlayStation Plus.",
+        "expiryDate": "2025-03-04"
+      },
+      "accountStatus": "Active",
+      "rechargeHistory": [
+        {
+          "planId": "eliteConnect",
+          "title": "EliteConnect",
+          "rechargeDate": "2025-01-25",
+          "expiryDate": "2025-02-27",
+          "price": 1199
+        }
+      ],
+      "id": "93e8"
+    }
+  ]
+}

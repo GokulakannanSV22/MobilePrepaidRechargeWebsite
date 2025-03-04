@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .dashboard-container {
+            max-width: 800px;
+            margin: auto;
+            padding-top: 20px;
+        }
+
+        .user-info,
+        .plan-info,
+        .history-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .logout-btn {
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container dashboard-container">
+        <h3>Welcome, <span id="userName"></span></h3>
+        <button class="btn btn-danger logout-btn" onclick="logout()">Logout</button>
+        <div class="user-info">
+            <h5>User Information</h5>
+            <p><strong>Phone:</strong> <span id="userPhone"></span></p>
+            <p><strong>Email:</strong> <span id="userEmail"></span></p>
+            <p><strong>Account Status:</strong> <span id="userStatus" class="badge bg-success"></span></p>
+        </div>
+        <div class="plan-info">
+            <h5>Current Plan Details</h5>
+            <p><strong>Plan Name:</strong> <span id="planTitle"></span></p>
+            <p><strong>Data:</strong> <span id="planData"></span></p>
+            <p><strong>Validity:</strong> <span id="planValidity"></span> days</p>
+            <p><strong>Price:</strong> ₹<span id="planPrice"></span></p>
+            <p><strong>Voice:</strong> <span id="planVoice"></span></p>
+            <p><strong>Expiry Date:</strong> <span id="planExpiry"></span></p>
+        </div>
+        <div class="history-info">
+            <h5>Recharge History</h5>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Plan Name</th>
+                        <th>Recharge Date</th>
+                        <th>Expiry Date</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="historyTableBody">
+                    <!-- Recharge history will be inserted here dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        async function fetchUserData(phoneNumber) {
+            try {
+                const response = await fetch(`http://localhost:3000/customers?mobile=${phoneNumber}`);
+                const users = await response.json();
+
+                if (users.length === 0) {
+                    alert("User not found!");
+                    logout();
+                    return;
+                }
+
+                const user = users[0]; // Assuming phone numbers are unique
+                document.getElementById("userName").textContent = user.name;
+                document.getElementById("userPhone").textContent = user.mobile;
+                document.getElementById("userEmail").textContent = user.email;
+                document.getElementById("userStatus").textContent = user.accountStatus;
+                document.getElementById("userStatus").classList.toggle("bg-danger", user.accountStatus !== "Active");
+
+                // Populate current plan details
+                document.getElementById("planTitle").textContent = user.currentPlan.title;
+                document.getElementById("planData").textContent = user.currentPlan.data;
+                document.getElementById("planValidity").textContent = user.currentPlan.validity;
+                document.getElementById("planPrice").textContent = user.currentPlan.price;
+                document.getElementById("planVoice").textContent = user.currentPlan.voice;
+                document.getElementById("planExpiry").textContent = user.currentPlan.expiryDate;
+
+                // Populate recharge history
+                const historyTableBody = document.getElementById("historyTableBody");
+                historyTableBody.innerHTML = "";
+                user.rechargeHistory.forEach(entry => {
+                    historyTableBody.innerHTML += `
+                        <tr>
+                            <td>${entry.title}</td>
+                            <td>${entry.rechargeDate}</td>
+                            <td>${entry.expiryDate}</td>
+                            <td>₹${entry.price}</td>
+                        </tr>
+                    `;
+                });
+            } catch (error) {
+                console.error("Error fetching user data:", error);
+                logout();
+            }
+        }
+
+        function logout() {
+            sessionStorage.removeItem("loggedInUser");
+            window.location.href = "index.html";
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const phoneNumber = sessionStorage.getItem("loggedInUser");
+            if (phoneNumber) {
+                fetchUserData(phoneNumber);
+            } else {
+                alert("No user logged in!");
+                window.location.href = "index.html"; // Redirect to login if no user is found
+            }
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
