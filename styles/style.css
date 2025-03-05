@@ -408,8 +408,6 @@ body {
   background-color: #c1f6ff;
 }
 
-
-
 .btn--action span {
   display: inline-block;
   position: relative;
@@ -474,15 +472,9 @@ body {
   transform-origin: bottom center;
 }
 
-.carousel {
-  background-color: #90f596;
-  background-image: linear-gradient(0deg, #90f596 0%, #ffffff 100%);
-
-}
-
 .card-showcase {
-  background-color: #90f596;
-  background-image: linear-gradient(180deg, #90f596 0%, #ffffff 100%);
+  background-color: #ffffff;
+  background-image: linear-gradient(0deg, #ffffff 0%, #90f596 50%, #ffffff 100%);
 
 }
 
@@ -494,4 +486,42 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card-custom {
+  border-radius: 15px;
+  padding: 60px;
+  border: none;
+}
+
+.bg-light-yellow {
+  background-color: #fdeedc;
+}
+
+.bg-light-blue {
+  background-color: #dbeafe;
+}
+
+.bg-light-red {
+  background-color: #fee2e2;
+}
+
+.icon-container {
+  display: flex;
+  gap: 10px;
+}
+
+.social-icons button {
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+}
+
+.faq-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+
 }

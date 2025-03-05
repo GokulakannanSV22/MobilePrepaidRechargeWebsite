@@ -41,7 +41,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal" id="profile-button">
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal"
+                                id="profile-button">
                                 <i class="fa-solid fa-id-badge"></i> <span class="d-none d-lg-inline">Profile</span>
                             </a>
                             <div class="dropdown" id="profileDropdown" style="display: none;">
@@ -221,8 +222,59 @@
                 class="fa-solid fa-hand-holding-dollar"></i><span> Instant
                 Recharge</span></button></a>
 
-    <h2 class="text-center">Dont Know How To recharge??!!</h2>
-    <section class="timeline-section mt-5">
+    <section class="faq-section">
+        <div class="container">
+            <div class="row g-4 align-items-stretch">
+                <!-- Left Section -->
+                <div class="col-lg-6">
+                    <div class="card card-custom bg-light-yellow h-100">
+                        <h3 class="fw-bold">let Vic help you</h3>
+                        <p>Vic, your personal Vi assistant is here to help you</p>
+                        <h5 class="mt-3">chat with Vic on</h5>
+                        <div class="icon-container mt-2">
+                            <button class="btn btn-light"><i class="bi bi-whatsapp"></i> WhatsApp</button>
+                            <button class="btn btn-light"><i class="bi bi-phone"></i> Vi App</button>
+                            <button class="btn btn-light"><i class="bi bi-globe"></i> Website</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Section -->
+                <div class="col-lg-6">
+                    <div class="row g-4">
+                        <!-- FAQs Card -->
+                        <div class="col-12">
+                            <div class="card card-custom bg-light-blue">
+                                <h5 class="fw-bold">FAQS</h5>
+                                <p>Here are frequently asked questions. Might help you as well.</p>
+                                <a href="#" class="fw-bold text-dark">View FAQS &raquo;</a>
+                            </div>
+                        </div>
+                        <!-- Social Media Card -->
+                        <div class="col-12">
+                            <div class="card card-custom bg-light-red">
+                                <h5 class="fw-bold">join the conversation</h5>
+                                <p>Keep in touch with us on our social channels.</p>
+                                <div class="social-icons d-flex gap-3">
+                                    <button><i class="bi bi-facebook"></i></button>
+                                    <button><i class="bi bi-instagram"></i></button>
+                                    <button><i class="bi bi-twitter"></i></button>
+                                    <button><i class="bi bi-youtube"></i></button>
+                                    <button><i class="bi bi-linkedin"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+
+    <div>
+        <h2 class="text-center">Dont Know How To recharge??!!</h2>
+    </div>
+    <section class="timeline-section">
         <div class="progress-container">
             <div class="progress-bar" id="progress-bar"></div>
         </div>
@@ -363,7 +415,7 @@
             let sectionHeight = section.offsetHeight;
             let scrollTop = document.documentElement.scrollTop;
             let scrollEnd = sectionTop + sectionHeight - window.innerHeight;
-    
+
             let progress = ((scrollTop - sectionTop) / (scrollEnd - sectionTop)) * 100;
             if (progress < 0) progress = 0;
             if (progress > 100) progress = 100;
@@ -373,14 +425,14 @@
             let mobileInput = document.getElementById("mobileNumber").value.trim();
             let error_message = document.getElementById("error-mobilenumber");
             let mobileRegex = /^[9]\d{9}$/;
-    
+
             if (mobileRegex.test(mobileInput)) {
                 error_message.textContent = "";
                 window.location.href = "prepaidpalns.html";
             }
             else if (mobileInput === "") {
                 error_message.textContent = "Mobile Number Cannot be Empty ❌";
-    
+
             }
             else {
                 error_message.textContent = "Invalid Mobile Number ❌";
@@ -395,11 +447,11 @@
                 alert("Enter a valid 10-digit mobile number.");
             }
         }
-    
+
         async function login() {
             const mobileNumber = document.getElementById("mobileNumber-login").value.trim();
             const otp = document.getElementById("otpInput").value.trim();
-    
+
             if (otp === "1234") { // Simulating OTP verification
                 sessionStorage.setItem("loggedInUser", mobileNumber); // Store session
                 checkLoginStatus(); // Update UI
@@ -409,7 +461,7 @@
                 alert("Invalid OTP. Please try again.");
             }
         }
-    
+
         // Check if the user is already logged in
         function checkLoginStatus() {
             const loggedInUser = sessionStorage.getItem("loggedInUser");
@@ -422,16 +474,17 @@
                 document.getElementById("loginButton").style.display = "block"; // Show login button
             }
         }
-    
+
         // Logout function
         function logout() {
             sessionStorage.removeItem("loggedInUser"); // Clear session
             checkLoginStatus(); // Refresh UI
             window.location.href = "index.html"; // Redirect to login page
         }
-    
+
         // Ensure UI updates on page load
         document.addEventListener("DOMContentLoaded", checkLoginStatus);
     </script>
 </body>
+
 </html>
