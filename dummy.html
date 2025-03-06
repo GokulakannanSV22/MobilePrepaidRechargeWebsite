@@ -2,92 +2,100 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        @import url("https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css");
-        @import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;500;700&display=swap");
-
-
-
-        .how-to-rec {
-            --color: rgba(30, 30, 30);
-            --bgColor: rgba(245, 245, 245);
-            min-height: 100vh;
-            padding: 2rem;
-            font-family: "Exo 2", sans-serif;
-            color: var(--color);
-            background: var(--bgColor);
-        }
-
-
-        .outline-recharge li {
-            width: 18rem;
-            --borderS: 2rem;
-            aspect-ratio: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-left: calc(var(--borderS) + 2rem);
-            position: relative;
-        }
-
-        .outline-recharge li::before,
-        .outline-recharge li::after {
-            inset: 0;
-            position: absolute;
-            border-radius: 50%;
-            border: var(--borderS) solid var(--bgColor);
-            line-height: 1.1;
-        }
-
-        .outline-recharge li::before {
-            color: var(--accent-color);
-            padding-left: 10rem;
-            font-size: 12rem;
-            font-weight: 700;
-            overflow: hidden;
-        }
-
-        .outline-recharge li::after {
-            content: "";
-            filter: drop-shadow(-0.25rem 0.25rem 0.0675rem rgba(0, 0, 0, 0.75)) blur(5px);
-        }
-
-        .outline-recharge li>* {
-            width: 7.5rem
-        }
-
-        .outline-recharge li .icon {
-            font-size: 2rem;
-            color: var(--accent-color);
-            text-align: center;
-            padding-left: 50px;
-        }
-
-        .outline-recharge li .title {
-            font-size: 2rem;
-            font-weight: 500
-        }
-
-        outline-recharge li .descr {
-            font-size: 0.8rem;
-            font-weight: 300
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Port to Vi Section Example</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="how-to-rec">
-        <div class="outline-recharge">
-            <li>
-                <div class="icon"><i class="fa-solid fa-bicycle"></i></div>
-                <div class="title">Step 1</div>
-                <div class="descr">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, porro.</div>
-            </li>
+
+    <!-- Section Start -->
+    <section class="py-5" style="background-color: #1f1f1f; color: #fff;">
+        <div class="container">
+            <!-- Section Heading -->
+            <h2 class="text-center fw-bold mb-4">
+                Port Your Mobile Number to Vi - MNP Sim Port Process
+            </h2>
+
+            <!-- Steps Row -->
+            <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+                <!-- Step 1 -->
+                <div class="text-center px-3 mb-4 mb-md-0">
+                    <!-- Replace with your icon/image -->
+                    <img src="https://via.placeholder.com/60" alt="Enter Porting Number" class="mb-2"
+                        style="max-width: 60px;" />
+                    <p class="mb-0">enter porting number</p>
+                </div>
+
+                <!-- Divider (dot or icon) -->
+                <div class="mx-3 text-white fs-4 d-none d-md-block">•</div>
+
+                <!-- Step 2 -->
+                <div class="text-center px-3 mb-4 mb-md-0">
+                    <!-- Replace with your icon/image -->
+                    <img src="https://via.placeholder.com/60" alt="Enter Delivery Details & Plan" class="mb-2"
+                        style="max-width: 60px;" />
+                    <p class="mb-0">enter delivery details and plan</p>
+                </div>
+
+                <!-- Divider (dot or icon) -->
+                <div class="mx-3 text-white fs-4 d-none d-md-block">•</div>
+
+                <!-- Step 3 -->
+                <div class="text-center px-3">
+                    <!-- Replace with your icon/image -->
+                    <img src="https://via.placeholder.com/60" alt="SIM Gets Delivered" class="mb-2"
+                        style="max-width: 60px;" />
+                    <p class="mb-0">SIM gets delivered</p>
+                </div>
+            </div>
+
+            <!-- Interested Users Info -->
+            <div class="text-center mt-4">
+                <span class="bg-dark px-3 py-2 rounded d-inline-block">
+                    9,786 users have shown interest to port number to Vi last week
+                </span>
+            </div>
         </div>
-    </div>
+    </section>
+    <!-- Section End -->
+
+    <!-- Porting Form Section -->
+    <section id="porting-form" class="section bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4">Port Your Number</h2>
+            <form>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="fullName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name"
+                            required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="currentOperator" class="form-label">Current Operator</label>
+                        <input type="text" class="form-control" id="currentOperator"
+                            placeholder="Enter your current operator" required>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="mobileNumber" class="form-label">Mobile Number</label>
+                    <input type="tel" class="form-control" id="mobileNumber" placeholder="Enter your mobile number"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="documentUpload" class="form-label">Upload Documents</label>
+                    <input type="file" class="form-control" id="documentUpload" multiple required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit Porting Request</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
