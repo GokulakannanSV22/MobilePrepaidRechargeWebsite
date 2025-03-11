@@ -2,99 +2,348 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Port to Vi Section Example</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #E8F6EF;
+            /* Mint Background */
+            color: #2B7A78;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+       
+        .form-check-label {
+            font-size: 18px;
+        }
+
+        .btn-primary {
+            background-color: #2B7A78;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #205D5B;
+        }
+
+        .modal-content {
+            border-radius: 10px;
+        }
+
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .loader-circle {
+            width: 12px;
+            height: 12px;
+            background-color: #2B7A78;
+            border-radius: 50%;
+            animation: pulse-animation 1.5s infinite ease-in-out;
+        }
+
+        .loader-circle:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loader-circle:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes pulse-animation {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            font-size: 50px;
+            color: #28a745;
+            animation: pop-scale 0.6s ease-in-out;
+        }
+
+        @keyframes pop-scale {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .success-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: pop-scale 0.6s ease-in-out;
+        }
+
+        @keyframes pop-scale {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .nav-tabs .nav-link {
+            border: none;
+            background: transparent;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .nav-tabs .nav-link.active {
+            border-bottom: 3px solid #007bff;
+            color: #007bff;
+        }
+
+        .payment-card {
+            border: none;
+            border-radius: 10px;
+        }
+
+        .payment-card .card-body {
+            padding: 2rem;
+        }
+
+        .card-logo img {
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        .input-group-text {
+            background-color: #fff;
+            border-left: none;
+        }
+
+        .form-control {
+            border-right: none;
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Section Start -->
-    <section class="py-5" style="background-color: #1f1f1f; color: #fff;">
-        <div class="container">
-            <!-- Section Heading -->
-            <h2 class="text-center fw-bold mb-4">
-                Port Your Mobile Number to Vi - MNP Sim Port Process
-            </h2>
-
-            <!-- Steps Row -->
-            <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
-                <!-- Step 1 -->
-                <div class="text-center px-3 mb-4 mb-md-0">
-                    <!-- Replace with your icon/image -->
-                    <img src="https://via.placeholder.com/60" alt="Enter Porting Number" class="mb-2"
-                        style="max-width: 60px;" />
-                    <p class="mb-0">enter porting number</p>
-                </div>
-
-                <!-- Divider (dot or icon) -->
-                <div class="mx-3 text-white fs-4 d-none d-md-block">•</div>
-
-                <!-- Step 2 -->
-                <div class="text-center px-3 mb-4 mb-md-0">
-                    <!-- Replace with your icon/image -->
-                    <img src="https://via.placeholder.com/60" alt="Enter Delivery Details & Plan" class="mb-2"
-                        style="max-width: 60px;" />
-                    <p class="mb-0">enter delivery details and plan</p>
-                </div>
-
-                <!-- Divider (dot or icon) -->
-                <div class="mx-3 text-white fs-4 d-none d-md-block">•</div>
-
-                <!-- Step 3 -->
-                <div class="text-center px-3">
-                    <!-- Replace with your icon/image -->
-                    <img src="https://via.placeholder.com/60" alt="SIM Gets Delivered" class="mb-2"
-                        style="max-width: 60px;" />
-                    <p class="mb-0">SIM gets delivered</p>
-                </div>
-            </div>
-
-            <!-- Interested Users Info -->
-            <div class="text-center mt-4">
-                <span class="bg-dark px-3 py-2 rounded d-inline-block">
-                    9,786 users have shown interest to port number to Vi last week
-                </span>
-            </div>
-        </div>
-    </section>
-    <!-- Section End -->
-
-    <!-- Porting Form Section -->
-    <section id="porting-form" class="section bg-light">
-        <div class="container">
-            <h2 class="text-center mb-4">Port Your Number</h2>
-            <form>
-                <div class="row mb-3">
-                    <div class="col-md-6">
-                        <label for="fullName" class="form-label">Full Name</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Enter your full name"
-                            required>
-                    </div>
-                    <div class="col-md-6">
-                        <label for="currentOperator" class="form-label">Current Operator</label>
-                        <input type="text" class="form-control" id="currentOperator"
-                            placeholder="Enter your current operator" required>
+    <div class="container py-5">
+        <div class="row">
+            <!-- Plan Details Card Column -->
+            <div class="col-lg-3 mb-4">
+                <div class="card shadow-sm" style="width: 20rem; border-radius: 12px;">
+                    <div class="card-body" style="border-radius: 12px;">
+                        <p class="text-muted mb-1 fw-semibold" style="text-transform: lowercase;">
+                            payment details
+                        </p>
+                        <p class="mb-2" style="color: #333;">
+                            Recharge for <span id="mobile-number"></span>
+                        </p>
+                        <hr class="dashed-line" />
+                        <p class="mb-2" style="color: #333;">
+                            Plan Name <span id="plan-title"></span>
+                        </p>
+                        <p class="text-muted mb-1 fw-semibold" style="text-transform: lowercase;">
+                            amount payable
+                        </p>
+                        <h5 class="mb-0" style="color: #333;" id="plan-amount">
+    
+                        </h5>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="mobileNumber" class="form-label">Mobile Number</label>
-                    <input type="tel" class="form-control" id="mobileNumber" placeholder="Enter your mobile number"
-                        required>
+            </div>
+            <!-- Payment Method Tabs Column -->
+            <div class="col-lg-6">
+                <ul class="nav nav-tabs mb-4" id="paymentTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="card-tab" data-bs-toggle="tab" data-bs-target="#card"
+                            type="button" role="tab">
+                            Credit / Debit Card
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="netbanking-tab" data-bs-toggle="tab" data-bs-target="#netbanking"
+                            type="button" role="tab">
+                            Netbanking
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="upi-tab" data-bs-toggle="tab" data-bs-target="#upi" type="button"
+                            role="tab">
+                            UPI
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="wallets-tab" data-bs-toggle="tab" data-bs-target="#wallets"
+                            type="button" role="tab">
+                            Wallets
+                        </button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="paymentTabsContent">
+                    <!-- Credit / Debit Card Tab -->
+                    <div class="tab-pane fade show active" id="card" role="tabpanel">
+                        <div class="card payment-card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title mb-4">Card Payment</h5>
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="cardNumber" class="form-label">Card Number</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="cardNumber"
+                                                placeholder="1234 5678 9012 3456" />
+                                            <span class="input-group-text card-logo">
+                                                <!-- Placeholder logos. Replace these URLs with your actual card logos if needed -->
+                                                <img src="https://via.placeholder.com/40x24?text=V" alt="Visa" />
+                                                <img src="https://via.placeholder.com/40x24?text=MC" alt="MasterCard" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cardHolder" class="form-label">Name on Card</label>
+                                        <input type="text" class="form-control" id="cardHolder"
+                                            placeholder="John Doe" />
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3">
+                                            <label for="expiryDate" class="form-label">Expiry Date</label>
+                                            <input type="text" class="form-control" id="expiryDate"
+                                                placeholder="MM/YY" />
+                                        </div>
+                                        <div class="col-md-6 mb-3">
+                                            <label for="cvv" class="form-label">CVV</label>
+                                            <input type="password" class="form-control" id="cvv" placeholder="CVV" />
+                                        </div>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="saveCard" />
+                                        <label class="form-check-label" for="saveCard">
+                                            Save card details for future transactions.
+                                        </label>
+                                    </div>
+                                    <button class="btn btn-primary w-100" onclick="processPayment()">Pay Now</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Netbanking Tab Placeholder -->
+                    <div class="tab-pane fade" id="netbanking" role="tabpanel">
+                        <p class="mt-3">Netbanking payment option will be added.</p>
+                    </div>
+                    <!-- UPI Tab Placeholder -->
+                    <div class="tab-pane fade" id="upi" role="tabpanel">
+                        <p class="mt-3">UPI payment option will be added.</p>
+                    </div>
+                    <!-- Wallets Tab Placeholder -->
+                    <div class="tab-pane fade" id="wallets" role="tabpanel">
+                        <p class="mt-3">Wallets payment option will be added.</p>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="documentUpload" class="form-label">Upload Documents</label>
-                    <input type="file" class="form-control" id="documentUpload" multiple required>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Submit Porting Request</button>
-                </div>
-            </form>
+            </div>
         </div>
-    </section>
-    <!-- Bootstrap Bundle with Popper -->
+    </div>
+    <!-- Loader Modal (Processing Payment) -->
+    <div class="modal fade" id="loaderModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4" style="border-radius: 10px; background: #E8F6EF;">
+                <div class="loader-container">
+                    <div class="loader-circle"></div>
+                    <div class="loader-circle"></div>
+                    <div class="loader-circle"></div>
+                </div>
+                <h5 class="mt-3" style="color: #2B7A78;">Processing Payment...</h5>
+            </div>
+        </div>
+    </div>
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4"
+                style="border-radius: 12px; background: #E8F6EF; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);">
+                <div class="success-icon">
+                    <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="40" stroke="#28a745" stroke-width="8" fill="none" />
+                        <path d="M30 50 L45 65 L70 35" stroke="#28a745" stroke-width="8" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <h4 class="mt-3" style="color: #2B7A78; font-weight: bold;">Recharge Successful</h4>
+                <p class="text-muted">Your recharge has been processed successfully!</p>
+                <button type="button" class="btn btn-success mt-3" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function loadPaymentDetails() {
+            let mobile = sessionStorage.getItem("mobileNumber");
+            let plan = JSON.parse(sessionStorage.getItem("selectedPlan"));
+
+            // if (!mobile || !plan) {
+            //     alert("Invalid session!");
+            //     window.location.href = "index.html";
+            //     return;
+            // }
+
+            document.getElementById("plan-title").innerText = `Plan: ${plan.title}`;
+            document.getElementById("mobile-number").innerText = mobile;
+            document.getElementById("plan-amount").innerText = `₹${plan.price}`
+        }
+
+        // function showPaymentModal(modalId) {
+        //     let modal = new bootstrap.Modal(document.getElementById(modalId));
+        //     modal.show();
+        // }
+
+        function processPayment() {
+            console.log("Processing payment started...");
+            let processingModal = new bootstrap.Modal(document.getElementById("loaderModal"));
+            processingModal.show();
+
+            // Simulate processing delay (e.g., 3 seconds)
+            setTimeout(() => {
+                processingModal.hide(); // Close Processing Modal
+
+                let successModal = new bootstrap.Modal(document.getElementById("successModal"));
+                successModal.show();
+
+                // Redirect to index page after 3 seconds
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 3000);
+
+            }, 3000);
+        }
+        loadPaymentDetails();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
