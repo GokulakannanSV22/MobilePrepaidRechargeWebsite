@@ -71,7 +71,12 @@ public class CategoryService {
 			{
 				Category deactivateCategory = activeCategory.get();
 				deactivateCategory.setCategoryStatus(Status.STATUS_INACTIVE);
-				return deactivateCategory;
+				List<Plan> categoryPlans = deactivateCategory.getPlans();
+				for(Plan plan : categoryPlans)
+				{
+					plan.setPlanStatus(Status.STATUS_INACTIVE);
+				}
+				return categoryRepo.save(deactivateCategory);
 			}
 		}
 		else
@@ -92,7 +97,12 @@ public class CategoryService {
 		{
 			Category activateCategory = inactiveCategory.get();
 			activateCategory.setCategoryStatus(Status.STATUS_ACTIVE);
-			return activateCategory;
+			List<Plan> categoryPlans = activateCategory.getPlans();
+			for(Plan plan : categoryPlans)
+			{
+				plan.setPlanStatus(Status.STATUS_ACTIVE);
+			}
+			return categoryRepo.save(activateCategory);
 		}
 		}
 		else

@@ -1,5 +1,6 @@
 package com.mobicomm.app.service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mobicomm.app.model.Plan;
+import com.mobicomm.app.model.PlanBenefits;
 import com.mobicomm.app.model.Status;
+import com.mobicomm.app.repository.PlanBenefitsRepository;
 import com.mobicomm.app.repository.PlanRepository;
 
 @Service
@@ -15,6 +18,9 @@ public class PlanService {
 
 	@Autowired
 	private PlanRepository planRepo;
+	
+	@Autowired
+	private PlanBenefitsRepository planBenefitRepo;
 	
 	private String generatePlanId() {
 	    Optional<Plan> lastPlan = planRepo.findTopByOrderByPlanIdDesc();
@@ -79,7 +85,7 @@ public class PlanService {
 			{
 				Plan deactivatePlan = activePlan.get();
 				deactivatePlan.setPlanStatus(Status.STATUS_INACTIVE);
-				return deactivatePlan;
+				return planRepo.save(deactivatePlan);
 			}
 		}
 		else
@@ -100,7 +106,7 @@ public class PlanService {
 		{
 			Plan activatePlan = inactivePlan.get();
 			activatePlan.setPlanStatus(Status.STATUS_ACTIVE);
-			return activatePlan;
+			return planRepo.save(activatePlan);
 		}
 		}
 		else

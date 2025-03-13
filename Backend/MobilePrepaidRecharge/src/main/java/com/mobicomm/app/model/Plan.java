@@ -1,8 +1,12 @@
 package com.mobicomm.app.model;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -11,6 +15,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,12 +43,15 @@ public class Plan {
 	@JoinColumn(name = "categoryId",nullable = false)
 	private Category category;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(
 			name = "PlanAndBenefits",
 			joinColumns = @JoinColumn(name = "planId"),
 			inverseJoinColumns = @JoinColumn(name = "benefitId"))
 	private Set<PlanBenefits> planBenefits = new HashSet<PlanBenefits>();
+	
+	
+	
 	
 	
 }

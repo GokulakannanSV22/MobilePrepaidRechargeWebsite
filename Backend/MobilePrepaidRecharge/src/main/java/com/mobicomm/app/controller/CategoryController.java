@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mobicomm.app.model.Category;
+import com.mobicomm.app.model.Plan;
 import com.mobicomm.app.service.CategoryService;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +24,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/categories")
 public class CategoryController {
 
@@ -59,5 +63,31 @@ public class CategoryController {
 	  		return new ResponseEntity<Category>(HttpStatus.NOT_FOUND);
 	  	}
 	  }
-	  
+		@PutMapping("/{categoryId}/deactivate")
+		public ResponseEntity<Category> deactivateCategoryById(@PathVariable String categoryId) {
+			//TODO: process PUT request
+			Category deactivateCategory = categoryService.deactivateCategoryById(categoryId);
+			if(deactivateCategory != null)
+			{
+				return new ResponseEntity<Category>(deactivateCategory,HttpStatus.OK);
+			}
+			else
+			{
+				return new ResponseEntity<Category>(HttpStatus.NO_CONTENT);
+			}
+		}
+		
+		@PutMapping("/{categoryId}/activate")
+		public ResponseEntity<Category> activateCategoryById(@PathVariable String categoryId) {
+			//TODO: process PUT request
+			Category activateCategory = categoryService.deactivateCategoryById(categoryId);
+			if(activateCategory != null)
+			{
+				return new ResponseEntity<Category>(activateCategory,HttpStatus.OK);
+			}
+			else
+			{
+				return new ResponseEntity<Category>(HttpStatus.NO_CONTENT);
+			}
+		}
 }
