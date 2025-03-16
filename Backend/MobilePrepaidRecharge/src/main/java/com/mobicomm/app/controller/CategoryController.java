@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -51,9 +53,9 @@ public class CategoryController {
 	  }
 	  
 	  @PutMapping("/{categoryId}")
-	  public ResponseEntity<Category> putMethodName(@PathVariable String id, @RequestBody Category category) {
+	  public ResponseEntity<Category> editCategoryById(@PathVariable String categoryId, @RequestBody Category category) {
 	  	//TODO: process PUT request
-	  	Category updateExistingCategory = categoryService.updateCategory(id, category);
+	  	Category updateExistingCategory = categoryService.updateCategory(categoryId, category);
 	  	if(updateExistingCategory != null)
 	  	{
 	  		return new ResponseEntity<Category>(updateExistingCategory,HttpStatus.OK);
@@ -80,7 +82,7 @@ public class CategoryController {
 		@PutMapping("/{categoryId}/activate")
 		public ResponseEntity<Category> activateCategoryById(@PathVariable String categoryId) {
 			//TODO: process PUT request
-			Category activateCategory = categoryService.deactivateCategoryById(categoryId);
+			Category activateCategory = categoryService.activateCategoryById(categoryId);
 			if(activateCategory != null)
 			{
 				return new ResponseEntity<Category>(activateCategory,HttpStatus.OK);
@@ -90,4 +92,17 @@ public class CategoryController {
 				return new ResponseEntity<Category>(HttpStatus.NO_CONTENT);
 			}
 		}
+		@GetMapping("/{categoryId}")
+		public ResponseEntity<Category> getCategoryById(@PathVariable String categoryId) {
+			Optional<Category> getCategory = categoryService.getCategoryById(categoryId);
+			if(getCategory.isPresent())
+			{
+				return new ResponseEntity<Category>(getCategory.get(),HttpStatus.OK);
+			}
+			else
+			{
+				return new ResponseEntity<Category>(HttpStatus.NOT_FOUND);
+			}
+		}
+		
 }

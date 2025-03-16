@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
@@ -29,5 +31,8 @@ public class PlanBenefits {
 	@ManyToMany(mappedBy = "planBenefits",cascade = CascadeType.PERSIST)
 	@JsonIgnore
 	private List<Plan> plan;
+	
+	@Enumerated(EnumType.STRING)
+	private Status planBenefitStatus; 
 	
 }

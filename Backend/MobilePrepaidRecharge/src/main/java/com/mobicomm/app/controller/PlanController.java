@@ -6,6 +6,7 @@ import com.mobicomm.app.model.Plan;
 import com.mobicomm.app.service.PlanService;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 
@@ -90,5 +93,20 @@ public class PlanController {
 			return new ResponseEntity<Plan>(HttpStatus.NO_CONTENT);
 		}
 	}
+	
+	@GetMapping("/{planId}")
+	public ResponseEntity<Plan> getPlanById(@PathVariable String planId) {
+		Optional<Plan> plan = planService.getPlanById(planId);
+		if(plan.isPresent())
+		{
+			return new ResponseEntity<Plan>(plan.get(),HttpStatus.OK);
+		}
+		else
+		{
+			return new ResponseEntity<Plan>(HttpStatus.NOT_FOUND);
+		}
+		
+	}
+	
 	
 }

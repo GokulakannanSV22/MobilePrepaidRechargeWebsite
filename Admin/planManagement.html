@@ -26,6 +26,9 @@
                         Management</span></a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="categoryManagement.html"><i class="fa-solid fa-layer-group"></i><span>Category Management</span></a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="usermanagement.html"><i
                         class="fas fa-users"></i><span>UserManagement</span></a>
             </li>
@@ -88,6 +91,7 @@
                                     <th>Plan Status</th>
                                     <th>OTT Details</th>
                                     <th>Actions</th>
+                                    <th>Edit</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -113,6 +117,7 @@
                                     <th>Plan Status</th>
                                     <th>OTT Details</th>
                                     <th>Actions</th>
+                                    <th>Edit</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -216,11 +221,15 @@
                 </div>
                 <div class="modal-body">
                     <form id="editPlanForm">
-                        <input type="hidden" id="editCategoryId" name="categoryId">
-                        <input type="hidden" id="editPlanIndex" name="planIndex">
+                        <div class="mb-3">
+                            <label for="editCategoryId" class="form-label">Category</label>
+                            <select class="form-select" id="editCategoryId" name="categoryId" required>
+                                <!-- Populated dynamically -->
+                            </select>
+                        </div>
                         <div class="mb-3">
                             <label for="editPlanId" class="form-label">Plan ID</label>
-                            <input type="text" class="form-control" id="editPlanId" name="planId" required>
+                            <input type="text" class="form-control" id="editPlanId" name="planId" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="editTitle" class="form-label">Title</label>
@@ -243,10 +252,22 @@
                             <input type="text" class="form-control" id="editVoice" name="voice" required>
                         </div>
                         <div class="mb-3">
-                            <label for="editOttDetails" class="form-label">OTT Benefits</label>
-                            <div id="editOttDetails" class="ott-options-container">
-                                <!-- OTT options will be added dynamically -->
-                            </div>
+                            <label for="editBadge" class="form-label">Badge</label>
+                            <input type="text" class="form-control" id="editBadge" name="badge">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editBadgeColor" class="form-label">Badge Color</label>
+                            <input type="text" class="form-control" id="editBadgeColor" name="badgeColor">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="ottDetails" class="form-label">OTT Benefits</label>
+                            <select class="form-select" id="ottDetails" multiple>
+                                <!-- Populated dynamically -->
+                            </select>
+                            <small class="form-text text-muted">Hold Ctrl (Windows) / Command (Mac) to select
+                                multiple.</small>
                         </div>
                         <button type="submit" class="btn btn-primary">Save Changes</button>
                     </form>
@@ -258,9 +279,11 @@
 
 
 
+
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.js"></script>
     <script src="planManagement.js"></script>
+    <script src="Authhentication.js"></script>
 </body>
 
 </html>

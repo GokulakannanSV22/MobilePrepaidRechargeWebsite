@@ -1,16 +1,14 @@
 package com.mobicomm.app.service;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mobicomm.app.model.Admin;
 import com.mobicomm.app.model.Plan;
-import com.mobicomm.app.model.PlanBenefits;
 import com.mobicomm.app.model.Status;
-import com.mobicomm.app.repository.PlanBenefitsRepository;
 import com.mobicomm.app.repository.PlanRepository;
 
 @Service
@@ -19,22 +17,19 @@ public class PlanService {
 	@Autowired
 	private PlanRepository planRepo;
 	
-	@Autowired
-	private PlanBenefitsRepository planBenefitRepo;
+	
 	
 	private String generatePlanId() {
-	    Optional<Plan> lastPlan = planRepo.findTopByOrderByPlanIdDesc();
+		Optional<Plan> lastPlan = planRepo.findTopByOrderByPlanIdDesc();
 
-	    if (lastPlan.isPresent())
-	    {
-	        String lastId = lastPlan.get().getPlanId();
-	        int lastNumber = Integer.parseInt(lastId.substring(6)); // Extract numeric part
-	        return "mc_pl_" + (lastNumber + 1);
-	    }
-	    else
-	    {
-	        return "mc_pl_1"; 
-	    }
+        if (lastPlan.isPresent()) {
+            String lastId = lastPlan.get().getPlanId();
+            int lastNumber = Integer.parseInt(lastId.substring(6)); // Extract numeric part after "mc_pl_"
+            int newNumber = lastNumber + 1;
+            return String.format("mc_pl_%04d", newNumber); // Pad with leading zeros to 4 digits
+        } else {
+            return "mc_pl_0001"; // Initial ID with 4-digit padding
+        }
 	}
 	
 	public List<Plan> getAllPlans()
@@ -57,7 +52,7 @@ public class PlanService {
 			updatedPlan.setValidity(plan.getValidity());
 			updatedPlan.setData(plan.getData());
 			updatedPlan.setVoice(plan.getVoice());
-			updatedPlan.setSms(plan.getSms());
+			updatedPlan.setSms(100);
 			updatedPlan.setPrice(plan.getPrice());
 			updatedPlan.setBadge(plan.getBadge());
 			updatedPlan.setBadgeColor(plan.getBadgeColor());
@@ -112,6 +107,18 @@ public class PlanService {
 		else
 		{
 			throw new RuntimeException("Plan with plan id : "+ planId + "  Not found");
+		}
+	}
+	public Optional<Plan> getPlanById(String planId)
+	{
+		Optional<Plan> getPlan = planRepo.findById(planId);
+		if(getPlan.isPresent())
+		{
+			return getPlan;
+		}
+		else
+		{
+			throw new RuntimeException("Plan with Plan Id :" + planId + "Not Found");
 		}
 	}
 }

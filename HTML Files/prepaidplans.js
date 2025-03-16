@@ -1,63 +1,99 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("http://localhost:3000/categories") // Corrected URL
-        .then(response => response.json())
-        .then(data => {
-            console.log("Fetched Data:", data); // Debugging
-            data.forEach(category => {
-                const containerId = getContainerId(category.id);
-                const container = document.getElementById(containerId);
-                if (container) {
-                    container.innerHTML = ""; // Clear old content
-                    category.plans.forEach(plan => {
-                        const ottDetails = plan.ottDetails.length > 0
-                            ? plan.ottDetails.map(ott => `<i class="${ott.icon}"></i> ${ott.platform} (${ott.validity})`).join("<br>")
-                            : "None";
+    const categoriesEndpoint = "http://localhost:8081/api/categories";
+    const plansEndpoint = "http://localhost:8081/api/plans";
+    const tabsContainer = document.getElementById("scrollableTabs");
+    const tabContentContainer = document.querySelector(".tab-content");
 
-                        const card = `
-                            <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
-                                <div class="card h-100 border-success">
-                                    <div class="card-body">
-                                        <h3>
-                                            <strong>₹${plan.price}</strong>
-                                            <span class="badge rounded-pill text-bg-warning float-end">${plan.title}</span>
-                                        </h3>
-                                        <hr>
-                                        <p><i class="bi bi-wifi"></i> ${plan.data}</p>
-                                        <p><i class="fa-solid fa-clock-rotate-left"></i> ${plan.validity} Days</p>
-                                        <p class="card-text"><i class="fa-solid fa-phone-volume"></i> ${plan.voice}</p>
-                                        <div class="ott-section">
-                                            <p class="h6">OTT's Included:</p>
-                                            ${ottDetails}
-                                        </div>
-                                    </div>
-                                    <div class="p-3">
-                                        <button type="button" class="recharge-button p-3 w-100" onclick="openRechargeModal(${JSON.stringify(plan).replace(/"/g, '&quot;')})">Recharge Now</button>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                        container.innerHTML += card;
-                    });
-                } else {
-                    console.warn(`No container found for category: ${category.id}`);
-                }
-            });
-        })
-        .catch(error => console.error("Error fetching data:", error));
-
-    function getContainerId(categoryId) {
-        const categoryMap = {
-            "recommendedPlans": "tab1-container",
-            "SaverPlans": "tab2-container",
-            "EntertainmentPlans": "tab3-container",
-            "gamingPlans": "tab4-container",
-            "xlr8DataPlans": "tab5-container",
-            "DataBooster": "tab6-container",
-            "absoluteUnlimited": "tab7-container"
-        };
-        return categoryMap[categoryId] || "";
+    async function fetchCategories() {
+        try {
+            const response = await fetch(categoriesEndpoint);
+            const categories = await response.json();
+            return categories.filter(category => category.categoryStatus === "STATUS_ACTIVE"); // Only active categories
+        } catch (error) {
+            console.error("Error fetching categories:", error);
+            return [];
+        }
     }
+
+    async function fetchPlans() {
+        try {
+            const response = await fetch(plansEndpoint);
+            const plans = await response.json();
+            return plans.filter(plan => plan.planStatus === "STATUS_ACTIVE"); // Only active plans
+        } catch (error) {
+            console.error("Error fetching plans:", error);
+            return [];
+        }
+    }
+
+    async function populateCategories() {
+        const categories = await fetchCategories();
+        const plans = await fetchPlans();
+        tabsContainer.innerHTML = "";
+        tabContentContainer.innerHTML = "";
+
+        categories.forEach((category, index) => {
+            const isActive = index === 0;
+
+            // Create tab
+            const tabItem = document.createElement("li");
+            tabItem.classList.add("nav-item");
+            tabItem.innerHTML = `
+                <button class="nav-link ${isActive ? "active" : ""}" id="tab-${category.categoryId}" data-bs-toggle="tab" data-bs-target="#content-${category.categoryId}" role="tab">
+                    ${category.categoryName}
+                </button>`;
+            tabsContainer.appendChild(tabItem);
+
+            // Filter plans by category & only active ones
+            const categoryPlans = plans.filter(plan => plan.category.categoryId === category.categoryId);
+
+            // Create tab content
+            const tabContent = document.createElement("div");
+            tabContent.classList.add("tab-pane", "fade");
+            if (isActive) {
+                tabContent.classList.add("show", "active");
+            }
+            tabContent.id = `content-${category.categoryId}`;
+            tabContent.role = "tabpanel";
+            tabContent.innerHTML = `<div class="row">${categoryPlans.map(generatePlanCard).join('')}</div>`;
+            tabContentContainer.appendChild(tabContent);
+        });
+    }
+
+    function generatePlanCard(plan) {
+        let ottDetails = plan.planBenefits.length > 0 
+        ? plan.planBenefits.map(benefit => `<span class="badge text-dark"><i class="fa ${benefit.icon}"></i> ${benefit.benefitName}</span>`).join(' ') 
+        : "<p>No OTT benefits</p>";
+
+        return `
+            <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
+                <div class="card h-100 border-success">
+                    <div class="card-body">
+                        <h3>
+                            <strong>₹${plan.price.toFixed(2)}</strong>
+                            <span class="badge rounded-pill float-end" style="background-color: ${plan.badgeColor};">${plan.badge}</span>
+                            </h3>
+                            <p class="plan-name">${plan.planName}</p>
+                        <hr>
+                        <p><i class="bi bi-wifi"></i> ${plan.data}</p>
+                        <p><i class="fa-solid fa-clock-rotate-left"></i> ${plan.validity} Days</p>
+                        <p class="card-text"><i class="fa-solid fa-phone-volume"></i> ${plan.voice}</p>
+                        <p><i class="fa-solid fa-comment"></i> ${plan.sms} SMS</p>
+                        <div class="ott-sec">
+                            <p class="h6">OTT's Included:</p>
+                            ${ottDetails}
+                        </div>
+                    </div>
+                    <div class="p-3 mx-5 ">
+                        <button type="button" class="recharge-button p-3  w-100" onclick="openRechargeModal(${JSON.stringify(plan).replace(/"/g, '&quot;')})">Recharge Now</button>
+                    </div>
+                </div>
+            </div>`;
+    }
+
+    populateCategories();
 });
+
 
 function openRechargeModal(plan) {
     selectedPlan = plan;

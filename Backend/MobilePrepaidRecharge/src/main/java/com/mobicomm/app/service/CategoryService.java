@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mobicomm.app.model.Admin;
 import com.mobicomm.app.model.Category;
 import com.mobicomm.app.model.Plan;
 import com.mobicomm.app.model.Status;
@@ -18,18 +19,16 @@ public class CategoryService {
 	private CategoryRepository categoryRepo;
 	
 	private String generateCategoryId() {
-	    Optional<Category> lastCategory = categoryRepo.findTopByOrderByCategoryIdDesc();
+		Optional<Category> lastCategory = categoryRepo.findTopByOrderByCategoryIdDesc();
 
-	    if (lastCategory.isPresent())
-	    {
-	        String lastId = lastCategory.get().getCategoryId();
-	        int lastNumber = Integer.parseInt(lastId.substring(6)); // Extract numeric part
-	        return "mc_ct_" + (lastNumber + 1);
-	    }
-	    else
-	    {
-	        return "mc_ct_1"; 
-	    }
+        if (lastCategory.isPresent()) {
+            String lastId = lastCategory.get().getCategoryId();
+            int lastNumber = Integer.parseInt(lastId.substring(6)); // Extract numeric part after "mc_pl_"
+            int newNumber = lastNumber + 1;
+            return String.format("mc_ct_%04d", newNumber); // Pad with leading zeros to 4 digits
+        } else {
+            return "mc_ct_0001"; // Initial ID with 4-digit padding
+        }
 	}
 	
 	public Category addCategory(Category category)
@@ -84,7 +83,7 @@ public class CategoryService {
 			throw new RuntimeException("category with category id : "+ categoryId + " Not found");
 		}
 	}
-	public Category activatePlanById(String categoryId)
+	public Category activateCategoryById(String categoryId)
 	{
 		Optional<Category> inactiveCategory = categoryRepo.findById(categoryId);
 		if(inactiveCategory.isPresent())
@@ -108,6 +107,18 @@ public class CategoryService {
 		else
 		{
 			throw new RuntimeException("Category with category id : "+ categoryId + "  Not found");
+		}
+	}
+	public Optional<Category> getCategoryById(String categoryId)
+	{
+		Optional<Category> getCategory = categoryRepo.findById(categoryId);
+		if(getCategory.isPresent())
+		{
+			return getCategory;
+		}
+		else
+		{
+			throw new RuntimeException("Category with Category id : "+categoryId+"Not found");
 		}
 	}
 	
