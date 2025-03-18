@@ -1,9 +1,12 @@
 package com.mobicomm.app.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +18,7 @@ import com.mobicomm.app.model.RechargeHistory;
 import com.mobicomm.app.service.RechargeHistoryService;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/recharges")
 public class RechargeHistoryController {
 
@@ -40,4 +44,26 @@ public class RechargeHistoryController {
     public ResponseEntity<List<RechargeHistory>> getRechargesByMobile(@PathVariable Long mobileNumber) {
         return ResponseEntity.ok(rechargeHistoryService.getRechargesByMobileNumber(mobileNumber));
     }
+    
+    @PostMapping("/savedetails")
+    public ResponseEntity<RechargeHistory> saveRechargeDetail(@RequestBody Map<String, Object> saveDetail) {
+        //TODO: process POST request
+    	String userId = (String) saveDetail.get("userId");
+        String planId = (String) saveDetail.get("planId");
+        Long mobileNumber = Long.valueOf((String) saveDetail.get("mobileNumber"));
+        Double amountPaid = Double.valueOf((String) saveDetail.get("amountPaid"));
+        String paymentMethod = (String) saveDetail.get("paymentMethod");
+
+        RechargeHistory rechargeHistory = new RechargeHistory();
+        rechargeHistory.setUserId(userId);
+        rechargeHistory.setPlanId(planId);
+        rechargeHistory.setMobileNumber(mobileNumber);
+        rechargeHistory.setRechargeDate(LocalDateTime.now());
+        rechargeHistory.setAmountPaid(amountPaid);
+        rechargeHistory.setPaymentMethod(paymentMethod);
+        return ResponseEntity.ok(rechargeHistoryService.saveRechargeHistory(rechargeHistory));
+        
+        
+    }
+    
 }

@@ -49,13 +49,13 @@
     <section class="plan-category ">
         <div class="scrollable-tabs-container">
             <ul class="nav nav-tabs scrollable-tabs" id="scrollableTabs" role="tablist">
-                
+
             </ul>
         </div>
     </section>
     <section>
         <div class="tab-content">
-            
+
         </div>
 
     </section>
@@ -74,8 +74,8 @@
                         <span id="modal-error-text"></span>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button class="btn btn--action" onclick="validateMobileNumberModal()"><span>Pay
-                                Now</span></button>
+                        <button id="payBtn" class="btn btn-success" disabled>Pay Now</button>
+
                     </div>
                 </div>
             </div>
@@ -147,8 +147,278 @@
             </div>
         </section>
     </footer>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="prepaidplans.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+    <script>
+        async function validateMobileNumberModal() {
+            let mobileInput = document.getElementById("mobile-number");
+            let errorText = document.getElementById("modal-error-text");
+            let mobileNumber = mobileInput.value;
+
+            if (!/^[6-9]\d{9}$/.test(mobileNumber)) {
+                errorText.innerText = "Please enter a valid 10-digit mobile number.";
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://localhost:8081/api/users/phone/${mobileNumber}`);
+                if (!response.ok) {
+                    throw new Error("Mobile number not found");
+                }
+
+                const user = await response.json();
+                errorText.innerText = "";
+                sessionStorage.setItem("mobileNumber", mobileNumber);
+                sessionStorage.setItem("userDetails", JSON.stringify(user));
+                document.getElementById("payBtn").disabled = false;
+            } catch (error) {
+                errorText.innerText = "Mobile number not found. Please enter a valid number.";
+                document.getElementById("payBtn").disabled = true;
+            }
+        }
+
+
+        const userDetails = JSON.parse(sessionStorage.getItem("userDetails"));
+        const selectedPlan = JSON.parse(sessionStorage.getItem("selectedPlan"));
+        document.getElementById("payBtn").addEventListener("click", function () {
+            // Retrieve plan price from sessionStorage
+            const planPrice = selectedPlan.price;
+
+            console.log(planPrice)
+            if (!planPrice) {
+                alert("Plan price not set. Please select a plan.");
+                return;
+            }
+
+            // Convert price to paise
+            let amountInPaise = parseInt(planPrice) * 100;
+
+            // Call the backend to create an order
+            fetch(`http://localhost:8081/api/payment/create-order?amount=${amountInPaise}`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }
+            )
+                .then(response => response.json())
+                .then(order => {
+                    if (!order.id) {
+                        alert("Order ID not received from backend.");
+                        return;
+                    }
+
+                    var options = {
+                        "key": "rzp_test_7jbN2F87afR6Hf", // Razorpay Test Key
+                        "amount": amountInPaise,
+                        "currency": "INR",
+                        "name": "Mobicomm",
+                        "description": "Test Transaction",
+                        "order_id": order.id,
+                        "handler": function (response) {
+                            fetch(`http://localhost:8081/api/payment/payment-details/${response.razorpay_payment_id}`,
+                                {
+                                    method: "GET",
+                                    headers: {
+                                        "Content-Type": "application/json"
+                                    }
+                                }
+                            )
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error(`HTTP error! Status: ${response.status}`);
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    console.log("Payment Details:", data);
+                                    if (data.method) {
+                                        console.log("Payment Method:", data.method.toUpperCase());
+                                        const paymentMethod = data.method.toUpperCase();
+                                        const mobileNumber = sessionStorage.getItem("mobileNumber");
+                                        const transactionId = response.razorpay_payment_id;
+                                        const planId = sessionStorage.getItem(selectedPlan.planId);
+
+                                        fetchUserIdAndSendEmail(mobileNumber, transactionId, planId, planPrice, paymentMethod)
+                                    } else {
+                                        console.warn("Payment method not found in response.");
+                                    }
+                                })
+                                .catch(error => console.error("Error fetching payment method:", error));
+
+                        }
+                        ,
+                        "prefill": {
+                            "name": sessionStorage.getItem(userDetails.userName) || "Test User",
+                            "email": sessionStorage.getItem(userDetails.userEmail) || "test@example.com",
+                            "contact": sessionStorage.getItem("mobileNumber") || "9999999999"
+                        },
+                        "theme": {
+                            "color": "#0D6EFD"
+                        }
+                    };
+
+                    var rzp1 = new Razorpay(options);
+                    rzp1.open();
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("Failed to create Razorpay order. Check backend logs.");
+                });
+        });
+
+        /***********************************************************
+          3) fetchUserIdAndSendEmail -> calls user phone endpoint,
+             then user details endpoint, then sends email
+        ***********************************************************/
+        async function fetchUserIdAndSendEmail(mobileNumber, transactionId, planId, planPrice, paymentMethod) {
+            try {
+
+                const userIdResponse = await fetch(`http://localhost:8081/api/users/phone/${mobileNumber}`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+
+                if (!userIdResponse.ok) {
+                    if (userIdResponse.status === 404) {
+                        alert("No user found for this mobile number!");
+                    }
+                    throw new Error("Error fetching user ID, status: " + userIdResponse.status);
+                }
+
+                const userData = await userIdResponse.json();
+                const userId = userData.userId; // or userData.userId if your backend returns that
+                if (!userId) {
+                    console.error("User ID not found in response:", userData);
+                    return;
+                }
+
+                // 3A) Fetch user email
+                const email = await fetchUserEmail(userId);
+                if (!email) {
+                    alert("Could not retrieve user email.");
+                    return;
+                }
+
+                // 3B) Send the email
+                await sendEmailReminder(email, transactionId, mobileNumber, planId, planPrice, paymentMethod);
+            } catch (error) {
+                console.error("Error in fetchUserIdAndSendEmail:", error);
+            }
+        }
+
+        /***********************************************************
+          4) fetchUserEmail -> gets email from /api/users/{userId}
+        ***********************************************************/
+        async function fetchUserEmail(userId) {
+            try {
+                const response = await fetch(`http://localhost:8081/api/users/${userId}`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error("Error fetching user details, status: " + response.status);
+                }
+                const data = await response.json();
+                return data.userEmail; // must match the field returned by your backend
+            } catch (error) {
+                console.error("Error fetching user email:", error);
+                return null;
+            }
+        }
+
+        /***********************************************************
+          5) sendEmailReminder -> calls /admin/email/send
+        ***********************************************************/
+        async function sendEmailReminder(email, transactionId, mobileNumber, planId, planPrice, paymentMethod) {
+            try {
+                const response = await fetch("http://localhost:8081/email/send", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        to: email,
+                        subject: "Payment Successful",
+                        body: `
+          Dear User,
+
+          Thank you for using our service. We are pleased to inform you that your payment has been processed successfully. 
+          
+          Below are the details of your recent transaction:
+
+            • Transaction ID: ${transactionId}
+            • Mobile Number: ${mobileNumber}
+            • Plan: ${sessionStorage.getItem("planName")}
+            • Price: ₹${planPrice}
+            • Payment Method: ${paymentMethod}
+
+          If you have any questions or need further assistance, please feel free to reach out to our customer support team at mobicomm.request@gmail.com. 
+          We value your business and look forward to serving you again in the future.
+            Sincerely,
+            MobiComm Team
+        `
+                    })
+                });
+
+                if (response.ok) {
+                    alert("Email confirmation sent successfully!");
+                    await storeData(mobileNumber, planId, planPrice, paymentMethod)
+                } else {
+                    alert("Failed to send email confirmation.");
+                }
+            } catch (error) {
+                console.error("Error sending email reminder:", error);
+                alert("Error sending email reminder.");
+            }
+        }
+
+
+        async function storeData(mobileNumber, planId, planPrice, paymentMethod) {
+
+            console.log(sessionStorage.getItem(userDetails.userId));
+            console.log(planId);
+            console.log(planPrice);
+            console.log(paymentMethod);
+            console.log(mobileNumber);
+            const requestBody =
+            {
+                userId: sessionStorage.getItem(userDetails.userId),
+                planId: planId,
+                mobileNumber: mobileNumber,
+                amountPaid: planPrice,
+                paymentMethod: paymentMethod
+            };
+
+
+            await fetch('http://localhost:8081/recharges/savedetails', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: requestBody
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Payment failed, please try again.");
+                });
+        }
+
+    </script>
 </body>
 
 </html>

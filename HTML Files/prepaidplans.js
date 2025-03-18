@@ -96,30 +96,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function openRechargeModal(plan) {
-    selectedPlan = plan;
     let modal = new bootstrap.Modal(document.getElementById("getplanModal"));
+    sessionStorage.setItem("selectedPlan", JSON.stringify(plan));
     modal.show();
 }
 
-function validateMobileNumberModal() {
-    let mobileInput = document.getElementById("mobile-number");
-    let errorText = document.getElementById("modal-error-text");
+document.getElementById("mobile-number").addEventListener("input", function () {
+    validateMobileNumberModal();
+});
 
-    if (/^[6-9]\d{9}$/.test(mobileInput.value)) {
-        errorText.innerText = "";
-        sessionStorage.setItem("selectedPlan", JSON.stringify(selectedPlan));
-        sessionStorage.setItem("mobileNumber", mobileInput.value);
-        window.location.href = "payments.html";
-    } else {
-        errorText.innerText = "Please enter a valid 10-digit mobile number.";
-    }
-}
 
-fetchPlans();
+
+
+
+//fetchPlans();
 
 function validateMobile() {
     var mobileNumber = document.getElementById("mobileNumber-login").value;
-    let mobileRegex = /^[9]\d{9}$/;
+    let mobileRegex = /^[6-9]\d{9}$/;
 
 
     if (mobileRegex.test(mobileNumber)) {
@@ -132,3 +126,9 @@ function validateMobile() {
 function login() {
     window.location.href = "UserDashBoard.html";
 }
+
+
+
+
+
+

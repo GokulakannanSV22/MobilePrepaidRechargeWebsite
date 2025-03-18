@@ -148,7 +148,6 @@
             <p><strong>Data:</strong> <span id="plan-data"></span></p>
             <p><strong>Validity:</strong> <span id="plan-validity"></span> days</p>
             <p><strong>Voice Calls:</strong> <span id="plan-voice"></span></p>
-            <p><strong>OTT's:</strong> <span id="plan-description"></span></p>
         </div>
 
         <!-- Payment Options -->
@@ -275,11 +274,10 @@
                 return;
             }
 
-            document.getElementById("plan-title").innerText = `Plan: ${plan.title} - ₹${plan.price}`;
+            document.getElementById("plan-title").innerText = `Plan: ${plan.planName} - ₹${plan.price}`;
             document.getElementById("plan-data").innerText = plan.data;
             document.getElementById("plan-validity").innerText = plan.validity;
             document.getElementById("plan-voice").innerText = plan.voice;
-            document.getElementById("plan-description").innerText = plan.description;
             document.getElementById("mobile-number").innerText = mobile;
         }
 

@@ -16,8 +16,9 @@ public class RechargeHistoryService {
     private  RechargeHistoryRepository rechargeHistoryRepository;
 
     public RechargeHistory saveRechargeHistory(RechargeHistory rechargeHistory) {
-        rechargeHistory.setRechargeDate(LocalDateTime.now()); // Set current time
-        return rechargeHistoryRepository.save(rechargeHistory);
+        
+    	return rechargeHistoryRepository.save(rechargeHistory);
+
     }
 
     public List<RechargeHistory> getAllRecharges() {

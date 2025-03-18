@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E8F6EF;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #2C786C;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #2C786C;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h2>User Dashboard</h2>
+        
+        <div class="card" id="user-info">
+            <h3>User Information</h3>
+            <p><strong>Name:</strong> <span id="userName"></span></p>
+            <p><strong>Email:</strong> <span id="userEmail"></span></p>
+            <p><strong>Phone:</strong> <span id="userPhone"></span></p>
+        </div>
+        
+        <div class="card" id="active-plan">
+            <h3>Active Plan</h3>
+            <p><strong>Plan ID:</strong> <span id="planId"></span></p>
+            <p><strong>Expiry Date:</strong> <span id="planExpiry"></span></p>
+        </div>
+        
+        <div class="card">
+            <h3>Recharge History</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Plan ID</th>
+                        <th>Amount</th>
+                        <th>Date</th>
+                        <th>Payment Method</th>
+                    </tr>
+                </thead>
+                <tbody id="history-table">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+       
+    </script>
+</body>
+</html>
