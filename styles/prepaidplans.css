@@ -147,10 +147,6 @@ body {
     padding: 20px;
     background-color: #90f596;
     background-image: linear-gradient(0deg, #90f596 0%, #ffffff 100%);
-
-    border-radius: 10px;
-    margin-top: 10px;
-    border: 1px solid #ddd;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -166,8 +162,15 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s;
-    background-color: #d1f2eb;
+    background-color: #e8f9f4;
+    max-width: 400px;
     /* Light mint green */
+}
+
+.card-header {
+    background-color: #87ffd1;
+    background-image: linear-gradient(270deg, #87ffd1 0%, #d2f9bd 52%);
+
 }
 
 .card:hover {
@@ -175,7 +178,7 @@ body {
 }
 
 .card-body {
-    max-height: 250px;
+    max-height: 150px;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #6cc4a1 #f1f1f1;
@@ -254,56 +257,6 @@ body {
     font-size: 0.9rem;
 }
 
-.btn--action {
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    border-radius: 1.5rem;
-    background-color: #57b894;
-    color: #000;
-    transition: all .5s ease 0s;
-}
-
-.btn--action:hover {
-    background-color: #c2fbd7;
-}
-
-
-
-.btn--action span {
-    display: inline-block;
-    position: relative;
-    transition: all .5s ease;
-}
-
-.btn--action span:before {
-    content: '\f53a';
-    color: #000;
-    font-size: 1rem;
-    font-family: FontAwesome;
-    display: inline-block;
-    position: absolute;
-    top: 10px;
-    left: 1.5rem;
-    opacity: 0;
-    transition: all .1s ease 0s;
-}
-
-.btn--action:hover span {
-    padding-left: 1.5rem;
-}
-
-.btn--action:hover span:before {
-    left: 0;
-    opacity: 1;
-    top: 0;
-}
-
-.btn--action:active {
-    box-shadow: 0 5px #f0932b;
-    transform: translateY(5px);
-}
-
 .glassmorphism {
     background: rgba(255, 255, 255, 0.15);
     border-radius: 15px;
@@ -312,4 +265,86 @@ body {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #8e9eab 0%, #eef2f3 51%, #8e9eab 100%)
+}
+
+.btn-grad {
+    margin: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: black;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 30px;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #555555;
+    text-decoration: none;
+}
+
+
+
+
+.btn-recharge {
+    background-image: linear-gradient(to right, #A1FFCE 0%, #FAFFD1  51%, #A1FFCE  100%)
+}
+
+.btn-recharge {
+    margin: 10px;
+    padding: 10px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: black;
+    box-shadow: 0 0 10px;
+    border-radius: 30px;
+    display: block;
+}
+
+.btn-recharge:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #555555;
+    text-decoration: none;
+}
+
+.glitter-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(12, 12, 12);
+    position: relative;
+    overflow: hidden;
+}
+
+.glitter-badge::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 10%, rgba(255, 255, 255, 0) 70%);
+    animation: glitter-animation 1.5s infinite linear;
+}
+
+@keyframes glitter-animation {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
 }

@@ -50,13 +50,8 @@ public class UserService {
     public User updateUser(String userId, User updatedUser) {
         User existingUser = getUserById(userId);
         existingUser.setUserName(updatedUser.getUserName());
-        existingUser.setDateOfBirth(updatedUser.getDateOfBirth());
         existingUser.setUserEmail(updatedUser.getUserEmail());
         existingUser.setPhoneNumber(updatedUser.getPhoneNumber());
-        existingUser.setUserStatus(updatedUser.getUserStatus());
-        existingUser.setPlanExpiryDate(updatedUser.getPlanExpiryDate());
-        existingUser.setPlanStatus(updatedUser.getPlanStatus());
-        existingUser.setRole(updatedUser.getRole());
 
         return userRepository.save(existingUser);
     }

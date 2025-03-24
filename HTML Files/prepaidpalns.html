@@ -57,7 +57,6 @@
         <div class="tab-content">
 
         </div>
-
     </section>
 
     <section>
@@ -74,7 +73,7 @@
                         <span id="modal-error-text"></span>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button id="payBtn" class="btn btn-success" disabled>Pay Now</button>
+                        <button id="payBtn" class="btn-grad" disabled>Pay Now</button>
 
                     </div>
                 </div>
@@ -111,46 +110,51 @@
     </div>
 
     <footer class="bg-primary">
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 mb-3" data-aos="fade-right" data-aos-delay="300">
-                        <h5 class="mt-5">Quick Links</h5>
-                        <ul class="list-unstyled">
-                            <li><a href="./index.html" class="text-decoration-none text-dark">Home</a></li>
-                            <li><a href="./prepaidplans.html" class="text-decoration-none text-dark">Recharge</a></li>
-                            <li><a href="./Contactus.html" class="text-decoration-none text-dark">Contact Us</a></li>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 mb-3" data-aos="fade-up" data-aos-delay="300">
-                        <h5 class="primary mt-5">Contact Info</h5>
-                        <ul class="list-unstyled">
-                            <li><i class="bi bi-envelope me-2"></i>mobicommsupport@gmail.com</li>
-                            <li><i class="bi bi-telephone me-2"></i>0427-123-4567</li>
-                            <li><i class="bi bi-geo-alt me-2"></i>123 Street Kiot</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-4 mb-3" data-aos="fade-left" data-aos-delay="300">
-                        <h5 class="primary mt-5">Follow Us</h5>
-                        <div class="d-flex gap-3">
-                            <a href="#" class="primary fs-4"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="primary fs-4"><i class="bi bi-twitter"></i></a>
-                            <a href="#" class="primary fs-4"><i class="bi bi-instagram"></i></a>
-                        </div>
-                    </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150">
+            <path fill="#90f596" fill-opacity="1"
+                d="M0,32L60,53.3C120,75,240,117,360,112C480,107,600,53,720,42.7C840,32,960,64,1080,69.3C1200,75,1320,53,1380,42.7L1440,32L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z">
+            </path>
+        </svg>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 " data-aos="fade-right" data-aos-delay="300">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="./index.html" class="text-decoration-none text-dark">Home</a></li>
+                        <li><a href="./prepaidplans.html" class="text-decoration-none text-dark">Recharge</a></li>
+                        <li><a href="./Contactus.html" class="text-decoration-none text-dark">Contact Us</a></li>
+                        </li>
+                    </ul>
                 </div>
-                <hr>
-                <div class="text-center">
-                    <small>&copy; 2024 Mobicomm Recharge Portal. All rights reserved.</small>
+                <div class="col-md-4 " data-aos="fade-up" data-aos-delay="300">
+                    <h5 class="primary">Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="bi bi-envelope me-2"></i>mobicommsupport@gmail.com</li>
+                        <li><i class="bi bi-telephone me-2"></i>0427-123-4567</li>
+                        <li><i class="bi bi-geo-alt me-2"></i>123 Street Kiot</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 " data-aos="fade-left" data-aos-delay="300">
+                    <h5 class="primary">Follow Us</h5>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-dark fs-4"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-dark fs-4"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-dark fs-4"><i class="bi bi-instagram"></i></a>
+                    </div>
                 </div>
             </div>
-        </section>
+            <hr>
+            <div class="text-center">
+                <small>&copy; 2024 Mobicomm Recharge Portal. All rights reserved.</small>
+            </div>
+        </div>
     </footer>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="prepaidplans.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 
+    <img src="../Assests/OTT/" alt="">
     <script>
         async function validateMobileNumberModal() {
             let mobileInput = document.getElementById("mobile-number");
@@ -257,7 +261,7 @@
                             "contact": sessionStorage.getItem("mobileNumber") || "9999999999"
                         },
                         "theme": {
-                            "color": "#0D6EFD"
+                            "color": "#90f596"
                         }
                     };
 
@@ -292,7 +296,8 @@
                 }
 
                 const userData = await userIdResponse.json();
-                const userId = userData.userId; // or userData.userId if your backend returns that
+                const userId = userData.userId;
+                sessionStorage.setItem("userId", userId); // or userData.userId if your backend returns that
                 if (!userId) {
                     console.error("User ID not found in response:", userData);
                     return;
@@ -357,11 +362,11 @@
 
             • Transaction ID: ${transactionId}
             • Mobile Number: ${mobileNumber}
-            • Plan: ${sessionStorage.getItem("planName")}
+            • Plan: ${selectedPlan.planName}
             • Price: ₹${planPrice}
             • Payment Method: ${paymentMethod}
 
-          If you have any questions or need further assistance, please feel free to reach out to our customer support team at mobicomm.request@gmail.com. 
+          If you have any questions or need further assistance, please feel free to reach out to our customer support team at mobicomm.user.services@gmail.com. 
           We value your business and look forward to serving you again in the future.
             Sincerely,
             MobiComm Team
@@ -371,7 +376,8 @@
 
                 if (response.ok) {
                     alert("Email confirmation sent successfully!");
-                    await storeData(mobileNumber, planId, planPrice, paymentMethod)
+                    await storeData(mobileNumber, planPrice, paymentMethod)
+                    window.location.href = "index.html";
                 } else {
                     alert("Failed to send email confirmation.");
                 }
@@ -382,29 +388,31 @@
         }
 
 
-        async function storeData(mobileNumber, planId, planPrice, paymentMethod) {
+        async function storeData(mobileNumber, planPrice, paymentMethod) {
 
-            console.log(sessionStorage.getItem(userDetails.userId));
-            console.log(planId);
-            console.log(planPrice);
+            console.log(sessionStorage.getItem("userId"));
+            console.log(selectedPlan.planId);
+
+            console.log(parseFloat(planPrice));
             console.log(paymentMethod);
-            console.log(mobileNumber);
+            console.log(Number(mobileNumber));
             const requestBody =
             {
-                userId: sessionStorage.getItem(userDetails.userId),
-                planId: planId,
-                mobileNumber: mobileNumber,
+                planId: selectedPlan.planId,
+                userId: sessionStorage.getItem("userId"),
+                mobileNumber: Number(mobileNumber),
                 amountPaid: planPrice,
                 paymentMethod: paymentMethod
             };
 
+            console.log("request:", requestBody);
 
-            await fetch('http://localhost:8081/recharges/savedetails', {
+            await fetch('http://localhost:8081/recharges', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: requestBody
+                body: JSON.stringify(requestBody)
             })
                 .then(response => {
                     if (!response.ok) {

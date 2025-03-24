@@ -44,7 +44,6 @@ public class PlanController {
 			return new ResponseEntity<List<Plan>>(plans,HttpStatus.OK);
 		}
 	}
-	
 	@PostMapping
 	public ResponseEntity<Plan> addPlan(@RequestBody Plan plan) {
 		//TODO: process POST request

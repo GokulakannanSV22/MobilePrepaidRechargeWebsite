@@ -61,21 +61,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function generatePlanCard(plan) {
-        let ottDetails = plan.planBenefits.length > 0 
-        ? plan.planBenefits.map(benefit => `<span class="badge text-dark"><i class="fa ${benefit.icon}"></i> ${benefit.benefitName}</span>`).join(' ') 
-        : "<p>No OTT benefits</p>";
+        let ottDetails = plan.planBenefits.length > 0
+            ? plan.planBenefits.map(benefit => `<span class="badge text-dark"><img src="../Assests/OTT/${benefit.icon}" alt="${benefit.benefitName}" height = "30px" class="rounded-circle"></span>`).join(' ')
+            : "<p>No OTT benefits</p>";
 
         return `
             <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
                 <div class="card h-100 border-success">
+                   <div class="card-header">
+                    <h3>
+                    <strong>₹${plan.price.toFixed(0)}</strong>
+                    <span class="glitter-badge rounded-pill float-end" style="background-color: ${plan.badgeColor};">${plan.badge}</span>
+                    </h3>
+                    <p class="plan-name">${plan.planName}</p>
+                    </div>
                     <div class="card-body">
-                        <h3>
-                            <strong>₹${plan.price.toFixed(2)}</strong>
-                            <span class="badge rounded-pill float-end" style="background-color: ${plan.badgeColor};">${plan.badge}</span>
-                            </h3>
-                            <p class="plan-name">${plan.planName}</p>
-                        <hr>
-                        <p><i class="bi bi-wifi"></i> ${plan.data}</p>
+                        <p><i class="fa-solid fa-wifi"></i> ${plan.data}</p>
                         <p><i class="fa-solid fa-clock-rotate-left"></i> ${plan.validity} Days</p>
                         <p class="card-text"><i class="fa-solid fa-phone-volume"></i> ${plan.voice}</p>
                         <p><i class="fa-solid fa-comment"></i> ${plan.sms} SMS</p>
@@ -85,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </div>
                     </div>
                     <div class="p-3 mx-5 ">
-                        <button type="button" class="recharge-button p-3  w-100" onclick="openRechargeModal(${JSON.stringify(plan).replace(/"/g, '&quot;')})">Recharge Now</button>
+                        <button type="button" class="btn-recharge w-100 mx-auto" onclick="openRechargeModal(${JSON.stringify(plan).replace(/"/g, '&quot;')})">Recharge Now</button>
                     </div>
                 </div>
             </div>`;

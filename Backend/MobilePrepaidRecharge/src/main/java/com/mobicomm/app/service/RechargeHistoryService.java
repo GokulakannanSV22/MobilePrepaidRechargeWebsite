@@ -15,10 +15,10 @@ public class RechargeHistoryService {
 	@Autowired
     private  RechargeHistoryRepository rechargeHistoryRepository;
 
-    public RechargeHistory saveRechargeHistory(RechargeHistory rechargeHistory) {
-        
+    public RechargeHistory saveRechargeHistory(RechargeHistory rechargeHistory) 
+    {    
+    	rechargeHistory.setRechargeDate(LocalDateTime.now());
     	return rechargeHistoryRepository.save(rechargeHistory);
-
     }
 
     public List<RechargeHistory> getAllRecharges() {
